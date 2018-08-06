@@ -1,0 +1,55 @@
+<!-- 
+ * @Author lizhenhua
+ * @version 2017-08-10
+ * @description Title
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="content">
+
+
+    <!--your content-->
+    <script>
+        var arr = [[1], 2, [3]]
+        //vue 源码函数
+        function simpleNormalizeChildren(children) {
+            for (let i = 0; i < children.length; i++) {
+                if (Array.isArray(children[i])) {
+                    return Array.prototype.concat.apply([], children)
+                }
+            }
+            return children
+        }
+
+        var arr2 = simpleNormalizeChildren(arr);
+        console.log(arr2)
+
+        var b = Array.prototype.concat.apply([], arr)
+        //利用 apply 第二个参数的特征，第二个参数如果是一个数组，就依次传入元素作为参数
+        console.log(b)
+
+        var c = Array.prototype.concat.apply([], [1.2,[[3],[4]]])
+        console.log(c)
+
+        //多维数组拍平
+        function f(arr) {
+            do{
+                arr = Array.prototype.concat.apply([],arr)
+            }while (arr.some(item=>Array.isArray(item)))
+            return arr
+        }
+
+        var d = f( [1,2,[[3],[4],[[[5]]]]])
+        console.log(d) //[1,2,3,4,5]
+        //https://www.cnblogs.com/front-end-ralph/p/4871332.html
+    </script>
+
+</div>
+</body>
+</html>
+

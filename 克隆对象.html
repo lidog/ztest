@@ -1,0 +1,98 @@
+<!-- 
+ * @Author lizhenhua
+ * @version 2017-08-10
+ * @description Title
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="header"></div>
+<div class="content">
+
+
+<script>
+    var obj = {
+        a:{
+            a1:13543,
+            a2:"2SGASGA"
+        },
+        B:[
+            {
+                c:"agsgasg",
+                d:[{135435:337373}]
+            }
+        ]
+    }
+
+
+    var str = JSON.stringify(obj);
+    console.log(str);//转化为字符串
+
+    var obj2 = JSON.parse(str); //转化为对象并赋值给obj2
+    console.log(obj2);
+
+    obj2.c = "li";  //定义一个obj2.c属性
+
+    console.log(obj2.c) //验证 只有obj2有c 属性
+    console.log(obj.c)
+
+
+    //判断对象的数据类型
+    function isClass(o){
+        if(o===null) return "Null";
+        if(o===undefined) return "Undefined";
+        return Object.prototype.toString.call(o).slice(8,-1);
+    }
+    //深拷贝
+    function deepClone(obj){
+        var result;
+        var oClass=isClass(obj);
+        if(oClass==="Object"){
+            result={};
+        }else if(oClass==="Array"){
+            result=[];
+        }else{
+            return obj;
+        }
+        for(var key in obj){
+            var copy=obj[key];
+            if(isClass(copy)=="Object"){
+                result[key]=arguments.callee(copy);//递归调用； arguments.callee 指向函数自身
+            }else if(isClass(copy)=="Array"){
+                result[key]=arguments.callee(copy);
+            }else{
+                result[key]=obj[key];
+            }
+        }
+        return result;
+    }
+
+    var obj3 = deepClone(obj);
+    obj3.c = "deepClone"
+
+    console.log(obj3) // 等于obj
+    console.log(obj3.c) //deepClone
+    console.log(obj.c)  //undefined
+
+    var obj4 = Object();   //运行Object 返回一个新对象
+    obj4.a=10;
+    console.log(obj4)   //object {a:10}
+
+
+
+</script>
+
+
+</div>
+<div id="footer"></div>
+<script src="../../plugins/jquery.min.js"></script>
+<script src="common"></script>
+<script src="header"></script>
+<script src="footer"></script>
+</body>
+</html>
+

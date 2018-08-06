@@ -1,0 +1,43 @@
+<!-- 
+ * @Author lizhenhua
+ * @version 2017-08-10
+ * @description Title
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="content">
+
+
+    <!--your content-->
+    <script>
+        function square(i) {
+            return i * i;
+        }
+
+        function dubble(i) {
+            return i *= 2;
+        }
+
+        function map(handeler, list) {
+            return list.map(handeler);
+        }
+
+        let arr = [1, 2, 3, 4, 5]
+        arr = map(square, arr);
+        console.log(arr)    //[1, 4, 9, 16, 25]
+
+        // Array.map 接受一个 回调函数，参数是 遍历的每个item，每次return item； 最后返回一个 处理后的 新 Array；
+
+
+
+    </script>
+
+</div>
+</body>
+</html>
+

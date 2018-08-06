@@ -1,0 +1,26 @@
+<!-- 
+ * @Author lizhenhua
+ * @version 2017-08-10
+ * @description Title
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <input type="text" id="text">
+    <button id="test">验证</button>
+<script>
+    var input = document.getElementById("text");
+    var btn = document.getElementById("test");
+    btn.onclick = function () {
+        var str = input.value.replace(/\s/g,"");
+        console.log("输入："+str);
+        console.log("length："+str.length);
+    }
+</script>
+
+</body>
+</html>

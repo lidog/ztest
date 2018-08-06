@@ -1,0 +1,44 @@
+<!-- 
+ * @Author lizhenhua
+ * @version 2017-08-10
+ * @description Title
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="header"></div>
+<div class="content">
+
+
+    <script>
+
+        var str = "ss";
+        console.log(str.length);//2
+        var str2 = "ss上岗";
+        console.log(str2.length);//4
+        var str4 = "a,b"    //英文符号
+        console.log(str4.length);//3
+        var str5 = "a，b"    //中文符号
+        console.log(str5.length);//3
+        var str3 = "ss上岗";
+        function GetLength(str) {
+            return str.replace(/[\u0391-\uFFE5]/g,"aa").length;  //先把中文替换成两个字节的英文，在计算长度
+        };
+        console.log(GetLength(str3))//6 等于后端适用的数据
+
+        console.log((/(\w){6,}$/g).test("AAAAAAshdthhdthtst"))
+        console.log((/(\w){6,}$/g).test("AAAAAAshdthhdthtst"))
+
+
+    </script>
+
+
+</div>
+
+</body>
+</html>
+

@@ -1,0 +1,45 @@
+<!-- 
+ * @Author lizhenhua
+ * @version 2017-08-10
+ * @description Title
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="header"></div>
+<div class="content">
+
+
+   <script>
+       function fbn(n) {
+           var a = 1,b=1,num = 3,arr = [1];
+           var int= setInterval(function () {
+               if(num<n){
+                   var c = a+b;
+                   a = b;
+                   b = c;
+                   arr.push(b);
+                   num++;
+               }else{
+                   arr.unshift(1)
+                   console.log(b);
+                   console.log(arr.toString())
+                   clearInterval(int)
+               }
+           },10)
+       }
+       fbn(100)
+
+   </script>
+
+
+</div>
+<div id="footer"></div>
+
+</body>
+</html>
+

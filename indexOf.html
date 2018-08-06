@@ -1,0 +1,40 @@
+<!-- 
+ * @Author lizhenhua
+ * @version 2017-08-10
+ * @description Title
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="header"></div>
+<div class="content">
+
+
+    <script>
+        //当查找源为 数组是，返回符合元素的下标
+        var arr=["aaa","bbb","ccc"];
+        console.log(arr.indexOf("aaa"));//0
+        console.log(arr.indexOf("ccc"));//2
+
+        //当查找对象为字符串时，返回第一次完全匹配的第一个字符的下标
+        var arrStr = arr.join(";");
+        console.log(arrStr)//aaa;bbb;ccc
+        console.log(arrStr.indexOf("aaa"))//0
+        console.log(arrStr.indexOf("a"))//0
+        console.log(arrStr.indexOf("ccc"))//8
+        console.log(arrStr.indexOf("bc"))//-1
+
+
+    </script>
+
+
+</div>
+<div id="footer"></div>
+
+</body>
+</html>
+

@@ -1,0 +1,71 @@
+<!-- 
+ * @Author lizhenhua
+ * @version 2017-08-10
+ * @description Title
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="header"></div>
+<div class="content">
+
+
+    <script>
+        let str = 'asss23sjdssskssa7lsssdkjsssdss'
+        const arr = str.split(/\s*/)              // 把字符串转换为数组
+        const str2 = arr.sort().join('')              // 首先进行排序，这样结果会把相同的字符放在一起，然后再转换为字符串
+        let value = ''
+        let index = 0
+        str2.replace(/(\w)\1*/g, function ($0, $1) {         // 匹配字符
+            console.log($0, $1)
+            if (index < $0.length) {
+                index = $0.length              // index是出现次数
+                value = $1                  // value是对应字符
+            }
+        })
+        console.log(`最多的字符: ${value} ,重复的次数: ${index}`)          // s 17
+
+
+        //数字格式化
+        let time = "2018-06";
+        var a = time.replace(/(\d{4})-(\d{2})/, '$1$2')
+        console.log('a', a)
+
+        var strings = "abc345efgabcab";
+        //1,删掉 a,b,c
+        var a = strings.replace(/a|b|c/g, '').trim();
+        console.log(a)
+
+        //2,为所有数字 加[ ]
+        //错误实例：var b = strings.replace(/\d/g,'[$1]') //$1 必须匹配 ( ) 分组的内容
+        var b = strings.replace(/(\d)/g,'[$1]');
+        console.log(b)
+
+        // 让所有数字 乘2
+        var c = strings.replace(/(\d)/g,function ($1) {
+            return parseInt($1)*2
+        })
+        console.log(c)
+
+        //提取url 参数 返回 对象
+        var url = "www.baidu.com?a=1&b=2&c=3&d=4&e"
+        var _url = url.split('?')[1].split('&');
+        var obj = {};
+        _url.forEach(item=>{
+            var arr = item.split('=');
+            obj[arr[0]] = arr[1];
+        })
+        console.log(obj)
+
+    </script>
+
+
+</div>
+<div id="footer"></div>
+</body>
+</html>
+

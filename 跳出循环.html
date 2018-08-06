@@ -1,0 +1,69 @@
+<!-- 
+ * @Author lizhenhua
+ * @version 2017-08-10
+ * @description Title
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="header"></div>
+<div class="content">
+
+
+    <script>
+        //return 不止中断 for循环，还阻止下面的代码执行；
+       function k() {
+           var a = 1,array = [1,2,3,4,5];
+           console.log(a)
+           for (var i = 0; i < array.length; i++) {
+               var obj = array[i];
+               if(obj<4){
+                   return;
+               }
+           }
+           console.log(array)
+       }
+       k()
+
+        //用 break 跳出循环
+        function kk() {
+            var a = 1,array = [1,2,3,4,5];
+            console.log(a)
+            for (var i = 0; i < array.length; i++) {
+                var obj = array[i];
+                if(obj<4){
+                    break;
+                }
+            }
+            console.log(array)
+        }
+        kk()
+
+        //用 continue 跳出本次循环
+        function kk() {
+            var a = 1,array = [1,2,3,4,5];
+            console.log(a)
+            for (var i = 0; i < array.length; i++) {
+                var obj = array[i];
+                if(obj<4){
+                    continue;
+                    console.log('obj')
+                }
+            }
+            console.log(array)
+        }
+        kk()
+
+    </script>
+
+
+</div>
+<div id="footer"></div>
+
+</body>
+</html>
+

@@ -1,0 +1,47 @@
+<!-- 
+ * @Author lizhenhua
+ * @version 2017-08-10
+ * @description Title
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="content">
+
+
+    <script>
+        const arrows = p => {return  p + "我的箭头函数";}
+
+       var a = arrows("第一次")
+
+        console.log(a)  //第一次我的箭头函数
+
+
+        //源码中经常有以下 语句：
+
+        const path = require('path')    //引入node 的 path 模块
+
+        /**
+        * 功能：请求的模块
+        * 参数：p 要请求模块的相对路径
+        * 返回值：请求的模块
+        */
+        const resolve = p => path.resolve(__dirname, '../', p)
+        //__dirname 表示当前目录名字
+        // `../`    相对于当前路径的前缀，
+        // p        请求模块的相对于根目录的绝对路径
+        //三个参数最后得出 请求模块的相对路径是 相对于 __dirname 的  ../p
+
+
+
+    </script>
+
+
+</div>
+</body>
+</html>
+

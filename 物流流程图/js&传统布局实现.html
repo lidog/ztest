@@ -1,0 +1,165 @@
+<!-- 
+ * @Author lizhenhua
+ * @version 2017-08-10
+ * @description Title
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+        }
+        .content{
+            width: 500px;
+            margin:200px auto;
+        }
+        li{
+            list-style: none;
+        }
+        .list{
+
+        }
+        .list-left,.list-mid,.list-right{
+            display: inline-block;
+            vertical-align: top;
+        }
+        .list-mid{
+            height: 100%;
+            text-align: center;
+            width: 20px;
+            margin:0 10px;
+        }
+        .list-mid .icon{
+            width: 20px;
+            height: 20px;
+            background: url("up.png") no-repeat 0 0;
+            background-size: cover;
+            transform: rotate(-180deg);
+        }
+        .list-mid .icon.on{
+            background-image: url("red-up.png");
+        }
+        .node .list-mid .icon{
+            border-radius: 50%;
+            background-image: none;
+            position: relative;
+        }
+        .node .list-mid .icon:after{
+            content: "";
+            width: 10px;
+            height: 10px;
+            position: absolute;
+            top:0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin:auto;
+            background-color: #3A3A3A;
+            border-radius:50%;
+        }
+        .list-mid .line{
+            width: 1px;
+            height: 100%;
+            background-color: #3A3A3A;
+            margin-bottom: -4px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+<div class="content">
+       <ul>
+           <li class="list">
+               <div class="list-left">
+                   <h3>早上</h3>
+                   <h5>10.30</h5>
+               </div>
+               <div class="list-mid">
+                   <div class="icon on"></div>
+                   <div class="line line-mid"></div>
+               </div>
+               <div class="list-right">
+                   <h3>运输中</h3>
+                   <h4>【厦门】 快递已经到达 厦门航站</h4>
+                   <h4>【厦门】 快递已经到达 厦门航站</h4>
+                   <h4>【厦门】 快递已经到达 厦门航站</h4>
+               </div>
+           </li>
+           <li class="list node">
+               <div class="list-left">
+                   <h3>早上</h3>
+                   <h5>10.30</h5>
+               </div>
+               <div class="list-mid">
+                   <div class="icon"></div>
+                   <div class="line line-mid"></div>
+               </div>
+               <div class="list-right">
+                   <h3>运输中</h3>
+                   <h4>【厦门】 快递已经到达 厦门航站</h4>
+               </div>
+           </li>
+           <li class="list">
+               <div class="list-left">
+                   <h3>早上</h3>
+                   <h5>10.30</h5>
+               </div>
+               <div class="list-mid">
+                   <div class="icon"></div>
+                   <div class="line line-mid"></div>
+               </div>
+               <div class="list-right">
+                   <h3>运输中</h3>
+                   <h4>【厦门】 快递已经到达 厦门航站</h4>
+               </div>
+           </li>
+           <li class="list node">
+               <div class="list-left">
+                   <h3>早上</h3>
+                   <h5>10.30</h5>
+               </div>
+               <div class="list-mid">
+                   <div class="icon"></div>
+                   <div class="line line-mid"></div>
+               </div>
+               <div class="list-right">
+                   <h3>运输中</h3>
+                   <h4>【厦门】 快递已经到达 厦门航站</h4>
+               </div>
+           </li>
+           <li class="list">
+               <div class="list-left">
+                   <h3>早上</h3>
+                   <h5>10.30</h5>
+               </div>
+               <div class="list-mid">
+                   <div class="icon"></div>
+                   <div class="line"></div>
+               </div>
+               <div class="list-right">
+                   <h3>运输中</h3>
+                   <h4>【厦门】 快递已经到达 厦门航站</h4>
+               </div>
+           </li>
+       </ul>
+
+</div>
+<script>
+    window.onload = function () {
+        var list = document.getElementsByClassName('list');
+        for (var i = 0; i < list.length; i++) {
+            var obj = list[i];
+            var line = obj.getElementsByClassName('line-mid');
+            if(line.length>0){
+                line[0].style.height = obj.offsetHeight + 30 +"px";
+            }
+        }
+    }
+</script>
+</body>
+</html>
+

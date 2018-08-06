@@ -1,0 +1,41 @@
+<!-- 
+ * @Author lizhenhua
+ * @version 2017-08-10
+ * @description Title
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="header"></div>
+<div class="content">
+
+
+   <script>
+
+               var a = {n:1};
+               var b = a;
+               a.x = a = {n:2};
+               console.log(a.x); //undefined
+               console.log(b.x);  //{n: 2}
+
+               //上面代码等价下面代码
+
+               var a = {n:1};
+               var b = a;
+               a.x = {n:2};
+               a = {n:2};
+               console.log( a = {n:2}) //{n: 2}
+               console.log(a.x); //undefined
+               console.log(b.x);  //{n: 2}
+
+   </script>
+
+
+</div>
+</body>
+</html>
+

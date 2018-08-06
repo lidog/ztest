@@ -1,0 +1,42 @@
+<!-- 
+ * @Author lizhenhua
+ * @version 2017-08-10
+ * @description Title
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="header"></div>
+<div class="content">
+
+<script>
+    //对比两种写法，占的内存是一样的fn1 的写法更加 方便扩展，闭包只是一个小技巧
+    function fn1() {
+        this.name = 'biBao'
+        this.say = function () {
+            console.log(this.name)
+        }
+    }
+    (new fn1()).say();
+
+    function fn2() {
+        let name = 'biBao';
+        return function () {
+            console.log(name)
+        }
+    }
+    fn2()();
+
+
+</script>
+
+
+</div>
+<div id="footer"></div>
+</body>
+</html>
+

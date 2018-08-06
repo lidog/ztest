@@ -1,0 +1,62 @@
+<!-- 
+ * @Author lizhenhua
+ * @version 2017-08-10
+ * @description Title
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="header"></div>
+<div class="content">
+
+<script>
+
+
+
+    //Object.getOwnPropertyDescriptor(window, 'x')
+    //获得window对象下的某个属性的 属性描述符
+    //    {
+    //        configurable:false    是否可被delete
+    //        enumerable:true   是否可枚举
+    //        value:2   值
+    //        writable:true     是否可改变
+    //    }
+
+    var x = 1;
+    window.y = 2;
+    delete window.x;
+    delete y;
+    console.log(x)      // 1
+    //console.log(y)      // 报错 未找到错误 y is not defined;通过window. 定义的 变量是可被 配置的
+
+    var k = 1;
+    window.k = 2;
+    delete k
+    console.log(k)  //2
+
+    //通过 console.log(Object.getOwnPropertyDescriptor(window, 'k'))
+    // 我们发现var 出来的变量 是不可被delete的 configurable:false
+    // 单纯的设置 window.x 的报错的变量 是可delete 的
+    // 当已经存在 var 的变量x，window.x 会指向同一个x，自然，x是不可delete的
+    //delete 操作符用于删除对象的某个属性；如果没有指向这个属性的引用，那它最终会被释放。
+
+
+    var obj = {
+        name:20
+    };
+    delete obj.name;    //var 对象的 属性的 configurable = true；可被delete
+    console.log(obj.name)   //undefined;
+    console.log(obj == {})  //false， 指向的内存不一样
+
+</script>
+
+
+</div>
+<div id="footer"></div>
+</body>
+</html>
+

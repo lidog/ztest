@@ -1,0 +1,100 @@
+<!-- 
+ * @Author lizhenhua
+ * @version 2017-08-10
+ * @description Title
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="header"></div>
+<div class="content">
+
+<script>
+
+
+    console.log(parseInt([[[2]]])==[[2]].toString());//true
+    //parseInt([2]) = > parseInt([2].toString())
+
+
+    //Object.getOwnPropertyDescriptor(window, 'x')
+    //获得window对象下的某个属性的 属性描述符
+    //    {
+    //        configurable:false    是否可被delete
+    //        enumerable:true   是否可枚举
+    //        value:2   值
+    //        writable:true     是否可改变
+    //    }
+
+    var obj = {
+        name:20
+    };
+    delete obj.name;    //var 对象的 属性的 configurable = true；可被delete
+    console.log(obj.name)   //undefined;
+    console.log(obj == {})  //false， 指向的内存不一样
+    //因为引用数据类型对用的只是内存指针，指针指向内存中实际的值，
+
+    var arr = [];
+    console.log(arr==[])
+    console.log(arr.toString()=='')
+
+    console.log(null+1 == undefined+1)//false
+    // Number(null) + 1 == Number(undefined) + 1
+    //  => 1 == NaN // false
+
+
+//    Object + Number = Number(Object) + Number
+
+//    Object + String = String(Object) + String
+
+//    undefined 同理，因为undefined 是 null 的派生值
+
+
+    console.log('---------------')   // 1
+    console.log('[]: '+ Number([]))   // 0
+    console.log('{}: '+Number({}))   // NaN
+    console.log('"": '+Number(''))   // NaN
+    console.log('true: '+Number(true))   // 1
+    console.log('false: '+Number(false))   // 0
+    console.log('null: '+Number(null))   // 0
+    console.log('undefined: '+Number(undefined))   // NaN
+    console.log('NaN: '+Number(NaN))   // NaN
+    console.log(Number('false'))   //NaN
+    console.log(Number('true'))   //NaN
+    console.log(Number('xxx'))   //NaN
+
+    console.log('---------------')   // 1
+    console.log('[]: '+ ([]).toString())   // ''
+    console.log('{}: '+({}).toString())   // [object Object]
+    console.log('"": '+('').toString())   // ''
+    console.log('true: '+(true).toString())   // 'true'
+    console.log('false: '+(false).toString())   // 'false'
+//    console.log('null: '+(null).toString())   // 报错
+//    console.log('undefined: '+(undefined).toString())   // 报错
+    console.log('NaN: '+(NaN).toString())   // 'NaN'
+
+//    复杂对象如何转换为简单值
+//    一个复杂对象在转为基础类型的时候会调用ToPrimitive(hint)方法来指定其目标类型。
+//    如果传入的hint值为number,那么就先调用对象的valueOf()方法，调用完valueOf()方法后，
+//    如果返回的是原始值，则结束ToPrimitive操作，如果返回的不是原始值，
+//    则继续调用对象的toString()方法，调用完toString()方法之后如果返回的是一个原始值，
+//    则结束ToPrimitive操作，如果返回的还是复杂值，则抛出异常。如果传入的hint值为string，
+//    则先调用toString()方法，再调用valueOf()方法，其余的过程一样。
+
+    console.log(1+[])
+    // [].valueOf() //返回数组自身，不是原始数据
+    // 调用 [].toString() 返回空字符串
+    // Number('') 得 0
+    // 1 + 0
+
+</script>
+
+
+</div>
+<div id="footer"></div>
+</body>
+</html>
+

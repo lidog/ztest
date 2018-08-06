@@ -1,0 +1,66 @@
+<!-- 
+ * @Author lizhenhua
+ * @version 2017-08-10
+ * @description Title
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="header"></div>
+<div class="content">
+
+<script>
+    (function () {
+        console.log(typeof a)  // undefined    因为 var a；还没有赋值
+        a = 10;
+    })()
+    var a  = null;
+    console.log(a)    // null    经历自执行函数以后，a = 10； 再经历 a = null；
+
+
+    var a  = null;
+    (function () {
+        console.log(typeof a)   //Object  此时a  = null，所以 typeof null = Object；
+        setTimeout(()=>{
+            a = 10
+        },0)
+    })()
+    console.log(a)     //null  setTimeout 中的代码总是最后执行， 所以 a 依然是 null
+
+    var a = null;
+    (function() {
+        console.log(typeof a)   //undefined  此时找到a 是 最近的a ，并且没有赋值；
+        var a = 10;
+    })()
+    console.log(a)  //null 作用域中，a = null
+
+    var name = "tony"
+    function test1() {
+        var name = 2;
+        console.log(name);  //2 找到最近的name
+        test2();
+    }
+    function test2() {
+        console.log(name)   // tony 作用域中只有name = h
+    }
+    test1();
+
+    var a = 1;
+    setTimeout(()=>{ a = 2 });
+    a = 3;
+    (function () {  //自执行函数可以当做一句执行语句；唯一区别是它有自己的作用域；
+        a = 4
+    })()
+    console.log(a)  //4
+</script>
+
+
+</div>
+<div id="footer"></div>
+</body>
+</html>
+

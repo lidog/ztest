@@ -1,0 +1,36 @@
+<!-- 
+ * @Author lizhenhua
+ * @version 2017-08-10
+ * @description Title
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="header"></div>
+<div class="content">
+
+<script>
+    try{
+        var x=document.getElementById("demo").value;   //取元素的值
+
+        if(x=="")    throw "值为空";       //根据获取的值，抛出错误
+        if(isNaN(x)) throw "不是数字";
+        if(x>10)     throw "太大";
+        if(x<5)      throw "太小";
+    }
+    catch(err){
+         console.log(err)  //抓住上面throw抛出的错误
+
+    }
+</script>
+
+</div>
+<div id="footer"></div>
+
+</body>
+</html>
+

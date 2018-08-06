@@ -1,0 +1,28 @@
+<!-- 
+ * @Author lizhenhua
+ * @version 2017-08-10
+ * @description Title
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="content">
+
+
+    <!--your content-->
+    <script>
+        var arr = [1,2,3]
+        console.log(arr.some(item=>item>5))//false
+        console.log(arr.some(item=>item>2))//true
+        console.log(arr.some(item=>{return item>2 }))//true 箭头函数如果在{ } 中执行，则不会自动return
+        console.log(arr.every(item=>item>2))    //false
+    </script>
+
+</div>
+</body>
+</html>
+

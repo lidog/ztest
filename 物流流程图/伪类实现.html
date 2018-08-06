@@ -1,0 +1,138 @@
+<!-- 
+ * @Author lizhenhua
+ * @version 2017-08-10
+ * @description Title
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*
+ * @Author lizhenhua
+ * @version 2018/5/10
+ * @description
+ */
+        *{
+            margin:0;
+            padding: 0;
+        }
+        .content{
+            width: 500px;
+            margin:200px auto;
+        }
+        li{
+            list-style: none;
+        }
+        .list{
+            position: relative;
+            padding-bottom: 20px;
+        }
+        .list-left,.list-right{
+            display: inline-block;
+            vertical-align: top;
+        }
+        .list-left{
+            margin-right: 50px;
+        }
+        .list:before{
+            content: "";
+            width: 20px;
+            height: 20px;
+            background: url("up.png") no-repeat 0 0;
+            background-size: cover;
+            top:0px;
+            left: 55px;
+            position: absolute;
+            transform: rotate(-180deg);
+            background-color: #fff;
+        }
+        .list.on:before{
+            background-image: url("red-up.png");
+        }
+        .list:after{
+            content: "";
+            position: absolute;
+            top:20px;
+            left: 65px;
+            width: 1px;
+            height: 100%;
+            background: #000;
+        }
+        .list:last-child:after{
+            display: none;
+        }
+        .list.node:before{
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            border: 2.5px solid transparent;
+            background-color: #000000;
+            background-image: none;
+            left: 60px;
+        }
+    </style>
+</head>
+<body>
+<div class="content">
+       <ul>
+           <li class="list on">
+               <div class="list-left">
+                   <h3>早上</h3>
+                   <h5>10.30</h5>
+               </div>
+               <div class="list-right">
+                   <h3>运输中</h3>
+                   <h4>【厦门】 快递已经到达 厦门航站</h4>
+                   <h4>【厦门】 快递已经到达 厦门航站</h4>
+                   <h4>【厦门】 快递已经到达 厦门航站</h4>
+               </div>
+           </li>
+           <li class="list">
+               <div class="list-left">
+                   <h3>早上</h3>
+                   <h5>10.30</h5>
+               </div>
+               <div class="list-right">
+                   <h3>运输中</h3>
+                   <h4>【厦门】 快递已经到达 厦门航站</h4>
+                   <h4>【厦门】 快递已经到达 厦门航站</h4>
+                   <h4>【厦门】 快递已经到达 厦门航站</h4>
+               </div>
+           </li>
+           <li class="list node">
+               <div class="list-left">
+                   <h3>早上</h3>
+                   <h5>10.30</h5>
+               </div>
+               <div class="list-right">
+                   <h3>运输中</h3>
+                   <h4>【厦门】 快递已经到达 厦门航站</h4>
+               </div>
+           </li>
+           <li class="list node">
+               <div class="list-left">
+                   <h3>早上</h3>
+                   <h5>10.30</h5>
+               </div>
+               <div class="list-right">
+                   <h3>运输中</h3>
+                   <h4>【厦门】 快递已经到达 厦门航站</h4>
+               </div>
+           </li>
+           <li class="list">
+               <div class="list-left">
+                   <h3>早上</h3>
+                   <h5>10.30</h5>
+               </div>
+               <div class="list-right">
+                   <h3>运输中</h3>
+                   <h4>【厦门】 快递已经到达 厦门航站</h4>
+               </div>
+           </li>
+       </ul>
+</div>
+</body>
+</html>
+

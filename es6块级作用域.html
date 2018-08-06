@@ -1,0 +1,55 @@
+<!-- 
+ * @Author lizhenhua
+ * @version 2017-08-10
+ * @description Title
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="header"></div>
+<div class="content">
+
+
+  <script>
+      //5；因为es6块级作用域的存在，console.log 只能是外面的n
+      function f1() {
+          let n = 5;
+          if (true) {
+              let n = 10;
+          }
+          console.log(n);
+      }
+      f1();
+
+      //10；因为没有块级作用域的存在，if中等于重复声明了 n变量；
+      function f2() {
+          var n = 5;
+          if (true) {
+              var n = 10;
+          }
+          console.log(n);
+      }
+      f2();
+
+      //5；IIFE的写法就是为了 开辟作用域；
+      function f3() {
+          var n = 5;
+          (function(){
+              var n = 10;
+          })()
+          console.log(n);
+      }
+      f3();
+
+
+  </script>
+
+</div>
+<div id="footer"></div>
+</body>
+</html>
+

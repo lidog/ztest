@@ -1,0 +1,113 @@
+<!-- 
+ * @Author lizhenhua
+ * @version 2017-08-10
+ * @description Title
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="header"></div>
+<div class="content">
+
+
+    <script>
+
+        function codeMen(name) {
+            this.name = name;
+            let _this = this;
+            if(!this.arr){
+                this.arr = []
+            }
+            if(!this.timeArr){
+                this.timeArr = [0,0,0,0];//first,sleep,times,times
+            }
+            if(this.arr.indexOf({codeMen:name})==-1){
+                this.arr.push({codeMen:name})
+            };
+
+            this.eat = function (str) {
+                this.arr.push({eat:str});
+                codeMen(name)
+                return _this
+            };
+            this.sleep = function (time) {
+                this.arr.push({sleep:time});
+                codeMen(name)
+                return _this
+            };
+            this.sleepFirst = function (time) {
+                this.arr.push({sleepFirst:time});
+                codeMen(name)
+                return _this
+            };
+
+            this.arr.map(item=>{
+                if(item['sleepFirst']>0&&this.timeArr[2]==0){
+                    this.timeArr[0] = item['sleepFirst'];
+                    this.timeArr[1] =this.timeArr[0] + this.timeArr[1];
+                    this.timeArr[2] = 1
+                };
+                if(item['sleep']>0&&this.timeArr[3]==0){
+                    this.timeArr[1] =this.timeArr[0] + item['sleep'];
+                    this.timeArr[3] = 1
+                };
+            });
+
+            this.callback = {
+                eat(str,time){
+                    setTimeout(function () {
+                        console.log("Eat " + str)
+                    },time*1000)
+                },
+                sleep(time){
+                    setTimeout(function () {
+                        console.log("wake up after " + time)
+                    },time*1000)
+                },
+                sleepFirst(time){
+                    setTimeout(function () {
+                        console.log("first wake up after " + time)
+                    },time*1000)
+                },
+                codeMen(name,time){
+                    setTimeout(function () {
+                        console.log("Hi! this is " + name)
+                    },time*1000)
+                }
+            };
+
+            if(window.timeout){
+                clearTimeout(window.timeout)
+            }
+            window.timeout = setTimeout(()=>{
+                let allTime = this.timeArr[1]+this.timeArr[0];
+                if(this.timeArr[0]>0){
+                    this.callback['sleepFirst'](this.timeArr[0]);
+                };
+                this.callback['codeMen']( this.name,this.timeArr[0]);
+                if(this.timeArr[1]>0){
+                    this.callback['sleep'](this.timeArr[1]);
+                };
+                this.arr.forEach(item=>{
+                    if(item['eat']){
+                        this.callback['eat'](item['eat'],allTime);
+                    }
+                })
+            },0)
+            return this
+        }
+
+        codeMen('peter').eat('dinner').sleepFirst(3).sleep(3).eat('food').sleep(3).eat('food')
+
+    </script>
+
+
+</div>
+<div id="footer"></div>
+</body>
+</html>
+

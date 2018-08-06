@@ -1,0 +1,45 @@
+<!-- 
+ * @Author lizhenhua
+ * @version 2017-08-10
+ * @description Title
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        html{
+            /*font-size: 1px;*/
+        }
+        .a{
+            width: 100rem;
+            height: 100rem;
+            background: red;
+            color: #fff;
+            /*font-size: 8rem;*/
+            font-size: 128px;
+            /*font-size: 0.12rem;*/
+        }
+    </style>
+</head>
+<body>
+<div class="a">啥</div>
+</body>
+<script>
+    (function(doc, win){
+        var docE1 = doc.documentElement,
+            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+            recalc = function(){
+                var clientWidth = docE1.clientWidth;
+                if(!clientWidth) return;
+               // docE1.style.fontSize = clientWidth / 375  + 'px'; 这样做 会导致 html的fontsize小于 12px
+                docE1.style.fontSize = (clientWidth / 375)*100  + 'px'; //乘以100的意义是，1为了不受fontsize小于12的影响，2为了计算方便；
+            };
+        if (!doc.addEventListener) return;
+        win.addEventListener(resizeEvt,recalc,false);
+        doc.addEventListener('DOMContentLoaded',recalc,false);
+    })(document,window);
+</script>
+</html>
+

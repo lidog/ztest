@@ -1,0 +1,81 @@
+<!-- 
+ * @Author lizhenhua
+ * @version 2017-08-10
+ * @description Title
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="header"></div>
+<div class="content">
+
+
+    <script>
+
+        class LazyMan {
+            constructor(name) {
+                this.queue = []
+
+                var hi = () => {
+                    console.log(`Hi! This is ${name}!`)
+                    this.next()
+                }
+
+                this.queue.push(hi)
+
+                setTimeout(() => {
+                    this.next()
+                }, 0)
+            }
+
+            next() {
+                var fn = this.queue.shift()
+                fn && fn()
+            }
+
+            eat(food) {
+                var fn = () => {
+                    console.log('eat ' + food)
+                    this.next()
+                }
+                this.queue.push(fn)
+                return this
+            }
+
+            sleep(time) {
+                var fn = () => {
+                    setTimeout(() => {
+                        console.log('Wake up after '+ time + 's!')
+                        this.next()
+                    }, time*1000)
+                }
+                this.queue.push(fn)
+                return this
+            }
+
+            sleepFirst(time) {
+                var fn = () => {
+                    setTimeout(() => {
+                        console.log('Wake up after '+ time + 's!')
+                        this.next()
+                    }, time*1000)
+                }
+                this.queue.unshift(fn)
+                return this
+            }
+        }
+
+       new LazyMan('sagrga').eat('dinner').sleepFirst(2).eat('food').sleep(3)
+
+    </script>
+
+
+</div>
+<div id="footer"></div>
+</body>
+</html>
+
