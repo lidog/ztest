@@ -1,0 +1,40 @@
+<!--
+ * @Author lizhenhua
+ * @version 2017-08-10
+ * @description Title
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>template</title>
+</head>
+<body>
+<div id="header"></div>
+<div class="content">
+
+
+    <!--your content-->
+    <script>
+        let arr = ["a", "b", "c"];
+        let eArr = arr.entries();
+        console.log(eArr);//数组迭代对象
+        console.log(eArr.next().value); // [0, "a"]
+        console.log(eArr.next().value); // [1, "b"]
+        console.log(eArr.next().value); // [2, "c"]
+
+
+        var arr = ["a", "b", "c"];
+        var iterator = arr.keys();
+        console.log(iterator.next()); // { value: 0, done: false }
+        console.log(iterator.next()); // { value: 1, done: false }
+        console.log(iterator.next()); // { value: 2, done: false }
+        console.log(iterator.next()); // { value: undefined, done: true }
+
+    </script>
+
+
+</div>
+<div id="footer"></div>
+</body>
+</html>

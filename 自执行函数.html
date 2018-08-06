@@ -1,0 +1,53 @@
+<!-- 
+ * @Author lizhenhua
+ * @version 2017-08-10
+ * @description Title
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var a = 10;
+    (function(){
+        console.log(a)  //10 说明自执行函数会 访问外部的函数
+    })()
+
+    var b = 10;
+    (function(){
+        var b;
+        console.log(b)  //undefined 说明优先访问内部变量
+    })();
+
+
+    (function(){
+        var c = 10;
+    })();
+    //console.log(c) //c is not defined 说明自执行函数什么局部变量
+
+
+    var d = 1;
+    (function(){
+         d = 10;
+        console.log(d);//10
+    })();
+    d = 12;
+    console.log(d); //12    说明自执行函数相当于普通代码段执行顺序；
+
+    var e = 1;
+    (function(){
+        e = 10;
+    })();
+    e = 12;
+    setTimeout(function () {
+        e = 14
+    },0);
+    console.log(e); //12    说明setTimeout 中的代码总是最后运行，哪怕设置的时间为 0；
+
+
+</script>
+</body>
+</html>

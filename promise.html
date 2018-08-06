@@ -10,171 +10,19 @@
     <title>Title</title>
 </head>
 <body>
-<div id="header"></div>
-<div class="content">
+<script>
+    const p1 = new Promise(function (resolve, reject) {
+        console.log(2)
+        setTimeout(() => reject(new Error('fail')), 3000)
+    })
 
+    const p2 = new Promise(function (resolve, reject) {
+        console.log(1)
+        setTimeout(() => resolve(p1), 1000)
+    })
 
-    <script>
+    p2.then(result => console.log(result)).catch(error => console.log(error))
 
-        // promise对象实例化参函数有两个函数，suc，fail；
-        // 通过先执行pro函数；判断如果要执行suc函数；那么就会执行.then()中的函数；
-        //如果是fail 就会执行 catch 中的函数
-        new Promise(pro).then(function (a) {
-             console.log("suc: "+ a);
-         }).catch(function (a) {
-             console.log("fail: "+a);
-         });
-        function pro(suc,fail) {
-             var a = Math.random()*2;
-             setInterval(function () {
-                 if(a>1){
-                    suc(a);
-                 }else {
-                     fail(a);
-                 }
-             },1000)
-        };
-
-        //即使 a，b 两步中做了很大的延迟执行；c依然会 在最后执行
-        new Promise(function (suc) {
-            var a = Math.random()*10000;
-            setTimeout(function () {
-                console.log("a :" +a);
-                suc();
-            },a);
-        }).then(function () {
-            return new Promise(function (suc) {
-                var b = Math.random()*10000;
-                setTimeout(function () {
-                    console.log("b :" +b);
-                    suc();  //参数中没有suc 但是依然执行；证明 a中的suc 会传给 then
-                },b);
-            })
-        }).then(function () {
-            console.log("c :" +0)
-        })
-
-
-        //Promise 的另外一种写法
-         function job1() {
-             return new Promise(function (s,f) {
-                 var a = Math.random()*10000;
-                 setTimeout(function () {
-                 console.log("xa :" +a);
-                 s();
-                 },a);
-             })
-         }
-         function job2() {
-             return new Promise(function (s,f) {
-                 var a = Math.random()*1000;
-                 setTimeout(function () {
-                 console.log("xb :" +a);
-                 s();
-                 },a);
-             })
-         }
-         function job3() {
-             return new Promise(function (s,f) {
-                 var a = Math.random()*100;
-                 setTimeout(function () {
-                 console.log("xc :" +a);
-                 s();
-                 },a);
-             })
-         }
-        //每个函数都返回一个 promise 对象，并在自身执行完以后，执行 resolve（成功函数）；
-        //resolve 会把 执行权 交给下一个函数，这样达到了流控制的目的
-        job1().then(job2).then(job3);
-
-
-        function e() {
-            var time = Math.random()*100;
-            setTimeout(function () {
-                console.log("ka :" +time);
-                return time
-            },a);
-        }
-        function f() {
-            var b = Math.random()*100;
-            setTimeout(function () {
-                console.log("kb :" +b);
-            },b);
-        }
-        function g() {
-            var time = Math.random()*100;
-            setTimeout(function () {
-                console.log("kc :" +time);
-                return time
-            },c);
-        }
-        //Promise是一个构造函数，自己身上有all、reject、resolve这几个方法
-        //all 接受两个函数执行，带（）的；
-        // return 是没有办法在 f中获取到的；
-        Promise.all([e(),g()]).then(f);
-
-
-        function a() {
-            return new Promise((suc)=> {
-                var time = Math.random()*100;
-                setTimeout(function () {
-                    console.log("wa :" +time);
-                     suc(time)
-                },a);
-            })
-        }
-        function b(data) {
-            console.log(data)   //[34.15570189112343, 17.31183019300877]
-            var b = Math.random()*100;
-            setTimeout(function () {
-                console.log("wb :" +b);
-            },b);
-        }
-        function c() {
-            return new Promise((suc)=> {
-                var time = Math.random()*100;
-                setTimeout(function () {
-                    console.log("wc :" +time);
-                    suc(time)
-                },c);
-            })
-        }
-        //要在b中获取到 执行完 a,c 中的值，必须要在a,c中有返回resolve状态；
-        Promise.all([a(),c()]).then(b);
-
-        new Promise((s,f)=>{
-            setTimeout(()=>{
-               console.log(3)
-                s();
-            },20)
-        }).then(()=> {
-           return new Promise((s)=>{
-               setTimeout(()=>{
-                   console.log(2)
-                   s()
-               },10)
-           })
-        }).then(function () {
-            console.log(1)
-        }).catch(()=>{
-            console.log(-1)
-        })
-
-
-        //then 中的 同步操作，也会被catch 捕获
-        new Promise(function (a,b) {
-            a(2)
-        }).then(function (d) {
-            throw Error('制造错误 err')
-        }).catch(function (c) {
-            console.log(c)
-        })
-
-
-    </script>
-</div>
-<div id="footer"></div>
-
+</script>
 </body>
 </html>
-
