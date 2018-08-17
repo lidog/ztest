@@ -1,6 +1,3 @@
-@@ -10,171 +10,19 @@
-<title>Title</title>
-</head>
 <body>
 <div id="header"></div>
 <div class="content">
@@ -11,159 +8,168 @@
         })
 
         const p2 = new Promise(function (resolve, reject) {
-                console.log(1)
-                setTimeout(() => resolve(p1), 1000)
-            })
+            console.log(1)
+            setTimeout(() => resolve(p1), 1000)//在这里执行 p1，模拟异步
+        })
 
-            <script>
 
-            // promise对象实例化参函数有两个函数，suc，fail；
-            // 通过先执行pro函数；判断如果要执行suc函数；那么就会执行.then()中的函数；
-            //如果是fail 就会执行 catch 中的函数
-            new Promise(pro).then(function (a) {
-                console.log("suc: "+ a);
-            }).catch(function (a) {
-                console.log("fail: "+a);
-            });
-        function pro(suc,fail) {
-            var a = Math.random()*2;
+        // promise对象实例化参函数有两个函数，suc，fail；
+        // 通过先执行pro函数；判断如果要执行suc函数；那么就会执行.then()中的函数；
+        //如果是fail 就会执行 catch 中的函数
+        new Promise(pro).then(function (a) {
+            console.log("suc: " + a);
+        }).catch(function (a) {
+            console.log("fail: " + a);
+        });
+
+        function pro(suc, fail) {
+            var a = Math.random() * 2;
             setInterval(function () {
-                if(a>1){
+                if (a > 1) {
                     suc(a);
-                }else {
+                } else {
                     fail(a);
                 }
-            },1000)
+            }, 1000)
         };
 
         //即使 a，b 两步中做了很大的延迟执行；c依然会 在最后执行
         new Promise(function (suc) {
-            var a = Math.random()*10000;
+            var a = Math.random() * 10000;
             setTimeout(function () {
-                console.log("a :" +a);
+                console.log("a :" + a);
                 suc();
-            },a);
+            }, a);
         }).then(function () {
             return new Promise(function (suc) {
-                var b = Math.random()*10000;
+                var b = Math.random() * 10000;
                 setTimeout(function () {
-                    console.log("b :" +b);
+                    console.log("b :" + b);
                     suc();  //参数中没有suc 但是依然执行；证明 a中的suc 会传给 then
-                },b);
+                }, b);
             })
         }).then(function () {
-            console.log("c :" +0)
+            console.log("c :" + 0)
         })
 
 
         //Promise 的另外一种写法
         function job1() {
-            return new Promise(function (s,f) {
-                var a = Math.random()*10000;
+            return new Promise(function (s, f) {
+                var a = Math.random() * 10000;
                 setTimeout(function () {
-                    console.log("xa :" +a);
+                    console.log("xa :" + a);
                     s();
-                },a);
+                }, a);
             })
         }
+
         function job2() {
-            return new Promise(function (s,f) {
-                var a = Math.random()*1000;
+            return new Promise(function (s, f) {
+                var a = Math.random() * 1000;
                 setTimeout(function () {
-                    console.log("xb :" +a);
+                    console.log("xb :" + a);
                     s();
-                },a);
+                }, a);
             })
         }
+
         function job3() {
-            return new Promise(function (s,f) {
-                var a = Math.random()*100;
+            return new Promise(function (s, f) {
+                var a = Math.random() * 100;
                 setTimeout(function () {
-                    console.log("xc :" +a);
+                    console.log("xc :" + a);
                     s();
-                },a);
+                }, a);
             })
         }
+
         //每个函数都返回一个 promise 对象，并在自身执行完以后，执行 resolve（成功函数）；
         //resolve 会把 执行权 交给下一个函数，这样达到了流控制的目的
         job1().then(job2).then(job3);
 
 
         function e() {
-            var time = Math.random()*100;
+            var time = Math.random() * 100;
             setTimeout(function () {
-                console.log("ka :" +time);
+                console.log("ka :" + time);
                 return time
-            },a);
+            }, a);
         }
+
         function f() {
-            var b = Math.random()*100;
+            var b = Math.random() * 100;
             setTimeout(function () {
-                console.log("kb :" +b);
-            },b);
+                console.log("kb :" + b);
+            }, b);
         }
+
         function g() {
-            var time = Math.random()*100;
+            var time = Math.random() * 100;
             setTimeout(function () {
-                console.log("kc :" +time);
+                console.log("kc :" + time);
                 return time
-            },c);
+            }, c);
         }
+
         //Promise是一个构造函数，自己身上有all、reject、resolve这几个方法
         //all 接受两个函数执行，带（）的；
         // return 是没有办法在 f中获取到的；
-        Promise.all([e(),g()]).then(f);
+        Promise.all([e(), g()]).then(f);
 
 
         function a() {
-            return new Promise((suc)=> {
-                var time = Math.random()*100;
+            return new Promise((suc) => {
+                var time = Math.random() * 100;
                 setTimeout(function () {
-                    console.log("wa :" +time);
+                    console.log("wa :" + time);
                     suc(time)
-                },a);
+                }, a);
             })
         }
+
         function b(data) {
             console.log(data)   //[34.15570189112343, 17.31183019300877]
-            var b = Math.random()*100;
+            var b = Math.random() * 100;
             setTimeout(function () {
-                console.log("wb :" +b);
-            },b);
+                console.log("wb :" + b);
+            }, b);
         }
+
         function c() {
-            return new Promise((suc)=> {
-                var time = Math.random()*100;
+            return new Promise((suc) => {
+                var time = Math.random() * 100;
                 setTimeout(function () {
-                    console.log("wc :" +time);
+                    console.log("wc :" + time);
                     suc(time)
-                },c);
+                }, c);
             })
         }
-        //要在b中获取到 执行完 a,c 中的值，必须要在a,c中有返回resolve状态；
-        Promise.all([a(),c()]).then(b);
 
-        new Promise((s,f)=>{
-            setTimeout(()=>{
+        //要在b中获取到 执行完 a,c 中的值，必须要在a,c中有返回resolve状态；
+        Promise.all([a(), c()]).then(b);
+
+        new Promise((s, f) => {
+            setTimeout(() => {
                 console.log(3)
                 s();
-            },20)
-        }).then(()=> {
-            return new Promise((s)=>{
-                setTimeout(()=>{
+            }, 20)
+        }).then(() => {
+            return new Promise((s) => {
+                setTimeout(() => {
                     console.log(2)
                     s()
-                },10)
+                }, 10)
             })
         }).then(function () {
             console.log(1)
-        }).catch(()=>{
+        }).catch(() => {
             console.log(-1)
         })
 
 
-        //then 中的 同步操作，也会被catch 捕获
-        new Promise(function (a,b) {
+        //then 中的 报出错误操作，也会被catch 捕获
+        new Promise(function (a, b) {
             a(2)
         }).then(function (d) {
             throw Error('制造错误 err')
@@ -172,6 +178,93 @@
         })
 
         p2.then(result => console.log(result)).catch(error => console.log(error))
+
+
+        //直接 return Promise.resole
+        function do1() {
+           setTimeout(()=>{
+               return Promise.resolve(1)
+           },3000)
+        }
+        do1().then(data=>{
+            console.log("data:",data)   //data: 1
+        })
+        //上面的操作等价于
+        function do1() {
+            return new Promise((resolve)=>{
+               setTimeout(()=>{
+                   resolve(1)
+               },3000)
+            })
+        }
+
+        //使用简化操作的时候，要注意 resolve 有没有正确返回,看一个vuex的坑
+        //action中定义的动作
+        function getFormData({commit}){
+            if(appData.state.formData&&appData.state.formData.document&&appData.state.formData.document.serviceCode){
+                return Promise.resolve(appData.state.formData)
+            }else{
+                $http({
+                    url:ajaxApi.form.data,
+                    data:{
+                        id:tools.getDocId()
+                    }
+                }).then(res=>{
+                    commit('set_formData',res);
+                    return Promise.resolve(res)
+                }).catch(err=>{
+                    console.log(err)
+                })
+            }
+        }
+        //外部触发,但是最后 收不到想要的结果
+        this.$store.dispatch('getFormData').then(res=>{
+            Indicator.close();
+            console.log(res) //undefined
+            // this.$router.push(res.document.serviceCode) 这里不用push，因为微信浏览器会自动加一个 返回底部 影响操作；
+            this.$router.replace(res.document.serviceCode)
+        })
+        //分析后发现，其实执行上，因为 $http 中return 的promise 是异步后的操作；但是dispatch 会继续执行；
+        // 所以 this.$store.dispatch('getFormData').then( ) 后面是没有接受到任何代码的；
+        //解决方法最好还是把异步操作放在 new promise中，然后得到结果后，再返回 代理数据的 promise
+        function getFormData({commit}){
+            return new Promise((resolve,reject)=>{
+                if(appData.state.formData&&appData.state.formData.document&&appData.state.formData.document.serviceCode){
+                    resolve(appData.state.formData)
+                }else{
+                    $http({
+                        url:ajaxApi.form.data,
+                        data:{
+                            id:tools.getDocId()
+                        }
+                    }).then(res=>{
+                        commit('set_formData',res);
+                        resolve(res)
+                    }).catch(err=>{
+                        console.log(err)
+                    })
+                }
+            })
+        }
+        //如果想改为 直接 return Promise.resolve() 的方式；可以这样
+        function getFormData({commit}){
+            if(appData.state.formData&&appData.state.formData.document&&appData.state.formData.document.serviceCode){
+                return Promise.resolve(appData.state.formData)
+            }else{
+                return $http({      //在$http 前面加上 return ;把 这个异步结果返回到 外面的代码中
+                    url:ajaxApi.form.data,
+                    data:{
+                        id:tools.getDocId()
+                    }
+                }).then(res=>{
+                    commit('set_formData',res);
+                    return Promise.resolve(res)
+                }).catch(err=>{
+                    console.log(err)
+                })
+            }
+        }
+
 
     </script>
 </div>

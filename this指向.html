@@ -1,0 +1,50 @@
+<!-- 
+ * @Author lizhenhua
+ * @version 2017-08-10
+ * @description Title
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="content">
+
+
+    <!--your content-->
+    <script>
+        var obj = {
+            foo:"bar",
+            func:function () {
+                var self = this;
+                console.log(this.foo);
+                console.log(self.foo);
+                (function(){
+                    console.log(this);//window 如果没有明确的调用上下文，this指向全局对象window
+                    console.log(this.foo);
+                    console.log(self.foo);
+                }())
+            }
+        }
+        obj.func();
+
+
+        function b() {
+            var a = 2;
+        };
+        b.prototype.a = 3;  //定义原型上的属性；
+        console.log( b.a ) //undefined 构造函数直接访问不了原型属性
+        console.log((new b()).a)//3  说明原型属性只有实例可以访问到
+        console.log(b.constructor)//Function(){ [native code] }函数原型
+        console.log((new b()).constructor)//b 实例的constructor指向其构造函数
+
+
+
+    </script>
+
+</div>
+</body>
+</html>
+
