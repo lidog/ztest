@@ -1,0 +1,48 @@
+<!-- 
+ * @Author lizhenhua
+ * @version 2017-08-10
+ * @description Title
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="content">
+
+    <input id="a" type="text" style="width: 200px">
+    <button onclick="f()" style="width: 100px;height: 100px;">验证</button>
+
+    <!--your content-->
+    <script>
+
+
+        function f() {
+            // 验证空字符串没有问题
+            if(/^\s*$/g.test('')){
+                console.log("邮件标题不能为空");
+            }
+            // 验证空格会出现时对时错的问题
+            if(/^\s*$/g.test(document.getElementById('a').value)){
+                console.log("邮件标题不能为空格");
+                return;
+            }
+            console.log('空格验证反复错误')
+
+            //为了防止出现类似bug 最好用 trim 处理一下
+            if(/^\s*$/g.test(document.getElementById('a').value.trim())){
+                console.log("邮件标题不能为空格");
+                return;
+            }
+
+
+        }
+
+    </script>
+
+</div>
+</body>
+</html>
+
