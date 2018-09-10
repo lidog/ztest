@@ -1,0 +1,42 @@
+<!-- 
+ * @Author lizhenhua
+ * @version 2017-08-10
+ * @description Title
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="content">
+
+    <!--your content-->
+    <script>
+        //先隔100毫秒弹出1，再隔100毫秒弹出2,一直到100
+        for (var i = 0; i < 101; i++) {
+           setTimeout(function () {
+               console.log(i)
+           },1000)
+        }
+        //es6 因为let 定义的变量是局部变量
+        for (let i = 0; i < 101; i++) {
+            setTimeout(function () {
+                console.log(i)
+            },1000*i)
+        }
+        //闭包
+        for (let i = 0; i < 101; i++) {
+            (function (int) {
+                setTimeout(function () {
+                    console.log(int)
+                },1000*int)
+            })(i)
+        }
+    </script>
+
+</div>
+</body>
+</html>
+
