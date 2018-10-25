@@ -1,0 +1,45 @@
+<!-- 
+ * @Author lizhenhua
+ * @version 2017-08-10
+ * @description Title
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="content">
+
+
+    <!--your content-->
+    <script>
+
+        var arr = [1,2,3,4,5,6,7,8,9,10];
+        arr.sort(function(){
+            return Math.random() - 0.5;
+        })
+        console.log(arr);
+
+        /*array.sort()方法默认是升序排序，如果想按照其他标准进行排序，就需要提供比较函数，
+        该函数要比较两个值，然后返回一个用于说明这两个值的相对顺序的数字。
+        比较函数应该具有两个参数 a 和 b，其返回值如下：
+
+        若 a 小于 b，在排序后的数组中 a 应该出现在 b 之前，则返回一个小于 0 的值。
+        若 a 等于 b，则返回 0。
+        若 a 大于 b，则返回一个大于 0 的值。*/
+
+        var arr2 = [1,2,3,4,5,6,7,8,9,10];
+        arr2.sort((a,b)=>{
+            console.log(a,b)
+            return b-a // [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]  b-a>0 b在前；降序
+            return a-b //[1,2,3,4,5,6,7,8,9,10] a-b<0 a 在前；升序
+        })
+
+    </script>
+
+</div>
+</body>
+</html>
+
