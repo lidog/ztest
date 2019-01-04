@@ -1,0 +1,163 @@
+<!-- 
+ * @Author lizhenhua
+ * @version 2017-08-10
+ * @description Title
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .content {
+            margin: 20px auto;
+        }
+        .box {
+            font-size: 16px;
+        }
+        .box li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px 0;
+        }
+        input {
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+
+        .line {
+            width: 100%;
+            height: 0;
+            border-bottom: 1px solid #ccc;
+            margin: 10px 0;
+        }
+
+        .cut {
+            display: flex;
+            justify-content: left;
+            align-items: center;
+        }
+
+        .cut input {
+            margin: 0 10px;
+        }
+        .other {
+            display: flex;
+            justify-content: left;
+            align-items: center;
+        }
+
+        .other input {
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="content">
+    <ul class="box all" id="personBox">
+        <li>
+           <div class="person">黎</div>
+           <input type="number">
+           <input type="number">
+           <input type="number">
+       </li>
+        <li>
+            <div class="person">南</div>
+            <input type="number">
+            <input type="number">
+            <input type="number">
+        </li>
+        <li>
+            <div class="person">富</div>
+            <input type="number">
+            <input type="number">
+            <input type="number">
+        </li>
+    </ul>
+    <div class="line"></div>
+    <div class="other">
+        <div>其他支出：</div>
+        <input type="number"  placeholder="餐盒">
+        <input type="number"  placeholder="外卖费">
+    </div>
+    <div class="line"></div>
+    <div class="cut">
+        <div>折扣：</div>
+        <input type="number"  placeholder="满减">
+        <input type="number"  placeholder="红包">
+    </div>
+    <div class="line"></div>
+    <ul class="after-cut box" id="personBox2">
+        <li>
+            <div class="person">黎</div>
+            <div name="cut"></div>
+        </li>
+        <li>
+            <div class="person">南</div>
+            <div name="cut"></div>
+        </li>
+        <li>
+            <div class="person">富</div>
+            <div name="cut"></div>
+        </li>
+    </ul>
+    <div class="line"></div>
+    <div class="all-num" id="allNum1">点菜总费用：<span>0</span></div>
+    <div class="line"></div>
+    <div class="all-num" id="allNum2">优惠总金额：<span>0</span></div>
+    <div class="line"></div>
+    <div class="all-num" id="allNum">实际总支出：<span>0</span></div>
+    <div class="line"></div>
+    <button id="computer">计算</button>
+</div>
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+    $(function () {
+        $("#computer").click(function () {
+            var all = 0;
+            var person = [];
+            var cut = 0;
+            var other = 0;
+            $(".all li").each(function (index,item) {   //计算每个人总数
+                person[index] = 0;
+                $(item).find("input").each(function (i,k) {
+                    let num = $(k).val();
+                    num = num?Number(num):0;
+                    person[index] += num;
+                });
+            });
+            $(".other input").each(function (i,o) { //计算额外费用
+                let num = o.value;
+                num = num?num:0;
+                other+=Number(num);
+            });
+            $(".cut input").each(function (i,o) {   //计算满减与红包
+                let num = o.value;
+                num = num?num:0;
+                cut+=Number(num);
+            });
+            person.forEach(function (item) {    //菜品费用
+                all += item;
+            })
+            $("#allNum1 span").text(all);
+            var allCut = Number(cut-other).toFixed(2);
+            $("#allNum2 span").text(allCut);
+
+            var trueNum = 0;
+            $("[name='cut']").each(function (i,o) { //填充结果
+                if(all==0){return true};
+                let percent = (person[i]/all).toFixed(3);//百分比 = 个人点菜 / 总菜
+                let c = (allCut*percent).toFixed(2) ;//个人优惠
+                let self = (person[i]-c).toFixed(2);
+                $(o).html("个人优惠："+ c +"（占总优惠额 "+ percent+"%）"+"应该支付："+self+"（"+ person[i] +"-"+ c +"）")
+                trueNum+=Number(self);
+            })
+            $("#allNum span").text(trueNum);
+        });
+
+    })
+</script>
+</body>
+</html>
+
