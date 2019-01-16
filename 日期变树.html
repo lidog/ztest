@@ -18,7 +18,55 @@
        let date=['2018-6-27','2018-6-28','2019-6-27','2019-10-27'];
        trans(date)
        function trans(date) {
-
+           let results = [],had=[];
+           date.forEach(item=>{
+               let first = item.split('-')[0];
+               if(had.indexOf(first)==-1){
+                   had.push(first);
+                   results.push({
+                       name:first,
+                       child:[],
+                   })
+               }
+           })
+           had = [];
+           date.forEach(item=>{
+               let arr = item.split('-');
+               results.forEach(o=>{
+                   if(o.name==arr[0]){
+                       if(had.indexOf(arr[1]==-1)){
+                           had.push(arr[1]);
+                           o.child.push({
+                               name:arr[1],
+                               child:[],
+                           })
+                       }else {
+                           o.child.forEach(k=>{
+                               if(k.name==arr[1]){
+                                   k.child.push({
+                                       name:arr[2]
+                                   })
+                               }
+                           })
+                       }
+                   }
+               })
+           })
+           date.forEach(item=>{
+               let arr = item.split('-');
+               results.forEach(o=>{
+                   if(o.name==arr[0]){
+                       o.child.forEach(k=>{
+                           if(k.name==arr[1]){
+                               k.child.push({
+                                   name:arr[2]
+                               })
+                           }
+                       })
+                   }
+               })
+           })
+           console.log(results)
 
        }
 
