@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>移动幻灯片</title>
+    <style>
+        *{margin:0;padding:0;}
+        img{border:none;}
+        body{background:rgba(42,135,211,0.5);}
+        #box{border:5px solid #fff;overflow: hidden;margin:50px 400px; font-size:0;border-radius: 10px;float:left;background:#fff6ff;position:relative;}
+        #box .left{border:50px solid transparent;border-right-color: rgba(254,138,3,.7);position: absolute;
+            left: -50px;top:40%;z-index: 10;display: none;}
+        #box .left:after{ content:'';border:40px solid transparent;border-right-color: rgba(255,255,255,0.8);position: absolute;
+              left: -20px;top:-40px;z-index: 20;}
+        #box .right{border:50px solid transparent;border-left-color: rgba(254,138,3,.7);position: absolute;
+            right: -45px;top:40%;z-index: 10;display: none;}
+        #box .right:after{ content:'';border:40px solid transparent;border-left-color: rgba(255,255,255,0.8);position: absolute;
+            right: -20px;top:-40px;z-index: 20;}
+        #box div:first-child{transition: all 0.5s;}
+        #box .unlook{position: absolute;top: 0;left: 0;display: none;width: 100%;height: 100%;}
+        #box .unlook img{width:100%;height:100%}
+        #box ul{list-style:none;}
+        #box ul li{float:left;width:30px;height:30px;margin:10px;border:1px solid #19beb6;font:14px/30px "微软雅黑";text-align:center;color:#04020d;border-radius: 50%;background:#c1c5e6}
+        #box ul li:last-child{display: none;}
+        #box ul li:hover{background:#00b3ee;color:#fff;font-size:18px;}
+        #box .red{background:red;color:#fff;}
+    </style>
+    <script src="js.js"></script>
+</head>
+<body>
+    <div id="box">
+        <div>
+            <img src="images/01.jpg" >
+            <img src="images/02.jpg">
+            <img src="images/03.jpg">
+            <img src="images/04.jpg">
+            <img src="images/05.jpg">
+            <img src="images/06.jpg">
+            <img src="images/f2.jpg">
+            <img src="images/f3.jpg">
+        </div>
+    </div>
+</body>
+<script>
+    Carousel('box',"800","500",1500);
+</script>
+</html>
