@@ -1,0 +1,232 @@
+<!--
+ * @Author lizhenhua
+ * @version 2017-08-10
+ * @description Title
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>链能利润统计</title>
+    <style>
+        .content {
+            width: 1200px;
+            margin: 50px auto;
+        }
+
+        .from {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .item:first-child {
+            flex: 2;
+        }
+        .item-name{
+            margin-bottom: 8px;
+        }
+        .item input, select {
+            padding: 5px 10px;
+            width: 80%;
+            font-size: 16px;
+        }
+
+        .sure-btn {
+            padding: 20px;
+            border-top: 1px solid #ccc;
+            margin: 20px 0 0 0;
+            text-align: center;
+        }
+        .sure-btn div{
+            display: inline-block;
+            padding: 10px 20px;
+            background: #00adef;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .sure-btn div:active {
+            background-color: #00a3cf;
+        }
+        .result {
+            padding-top: 10px;
+            border-top: 1px solid #ccc;
+
+        }
+
+        .result p {
+            width: 100%;
+        }
+        .result p span{
+            display: inline-block;
+            width: 14%;
+            text-align: center;
+        }
+        .result p span:last-child{
+            width: auto;
+        }
+        .result p span:last-child{
+            width: 8%;
+            padding: 2px 5px;
+            background: #00adef;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .detail{
+            margin-top: 40px;
+            line-height: 28px;
+        }
+    </style>
+</head>
+<body>
+<div class="content">
+    <div class="from">
+        <div class="item">
+            <div class="item-name">公司名称：</div>
+            <div class="item-val"><input type="text" name="companyName"></div>
+        </div>
+        <div class="item">
+            <div class="item-name">现基本电费：</div>
+            <div class="item-val"><input type="number" name="gCost"></div>
+        </div>
+        <div class="item">
+            <div class="item-name">原基本电费：</div>
+            <div class="item-val"><input type="number" name="localCost" value="2880"></div>
+        </div>
+        <div class="item">
+            <div class="item-name">本公司分成比例：</div>
+            <div class="item-val">
+                <select name="percent">
+                    <option value="10">10%</option>
+                    <option value="20" selected>20%</option>
+                    <option value="30">30%</option>
+                    <option value="40">40%</option>
+                    <option value="50">50%</option>
+                    <option value="60">60%</option>
+                    <option value="70">70%</option>
+                    <option value="80">80%</option>
+                    <option value="90">90%</option>
+                </select>
+            </div>
+        </div>
+        <div class="item">
+            <div class="item-name">是否已含税：</div>
+            <div class="item-val">
+                <select name="sui" style="padding-right: 5px;">
+                    <option value="1" selected>是</option>
+                    <option value="2">否</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="sure-btn">
+        <div id="sure">确定</div>
+    </div>
+    <div class="result">
+        <p>
+            <span>公司名称</span>
+            <span>原基本电费(元)</span>
+            <span>现基本电费(元)</span>
+            <span>节约电费</span>
+            <span>甲方收益(元)</span>
+            <span>乙方收益(元)</span>
+            <span>操作</span>
+        </p>
+    </div>
+    <div class="detail"></div>
+
+</div>
+<div id="footer"></div>
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+    $(function () {
+        $("#sure").click(function () {
+            var companyName = $("[name=companyName]").val();
+            var gCost = parseFloat($("[name=gCost]").val()); //供电局给出电费
+            var localCost = parseFloat($("[name=localCost]").val())*23;  //原基本电费
+            var percent = $("[name=percent]").val();
+            if (!companyName) {
+                alert("请输入公司名称");
+                return
+            }
+            if (!gCost) {
+                alert("请输入现基本电费");
+                return
+            }
+            if (!localCost) {
+                alert("请输入基础电费");
+                return
+            }
+            if (!percent) {
+                alert("请输入本公司分成比例");
+                return
+            }
+
+            // var more = (localCost - gCost).toFixed(2)   //节省的
+            var more = ((localCost*100 - gCost*100)/100).toFixed(2);   //节省的
+            var shui = $("[name=sui]").val();
+
+            var str = '';
+
+            if(shui==1){
+                str = "<p><span>" + companyName + "</span> <span>" +
+                        (localCost/23).toFixed(2) + " * 23 = "+localCost
+                        + "</span><span>" +
+                        (gCost/32).toFixed(2) +" * 32 = "+gCost    //供电局电费
+                        + "</span> <span>" +
+                        localCost +" - "+gCost+" = "+more   //节省的电费
+                        + "</span> <span>" +
+                        more+" * "+(100-percent)+"% = "+ (more*(100-percent)/100).toFixed(2)    //甲方收益
+                        + "</span> <span>" +
+                        more+" * "+percent+"% = "+  (more*percent/100).toFixed(2) //乙方收益
+                        + "</span> <span class='del'>删除</span></p>";
+            }else if(shui==2){
+                var mM = (more/1.17*(percent)/100*1.06).toFixed(2);
+                var yM = ((more*100 - mM*100)/100).toFixed(2);
+                str = "<p><span>" + companyName + "</span> <span>" +
+                        (localCost/23).toFixed(2) + " * 23 = "+localCost
+                        + "</span><span>" +
+                        (gCost/32).toFixed(2) +" * 32 = "+gCost    //供电局电费
+                        + "</span> <span>" +
+                        localCost +" - "+gCost+"="+more   //节省的电费
+                        + "</span> <span>" +
+                        more+" - "+mM+" = "+  yM //甲方收益
+                        + "</span> <span>" +
+                        more+" / 1.17 * "+(percent)+"% * 1.06= "+ mM   //乙方收益
+                + "</span> <span class='del'>删除</span></p>";
+            }
+
+
+            $(".result").append(str)
+
+
+            var str2 = ""
+            if(shui==2){
+                var k = (more/1.17*(percent)/100).toFixed(2);
+                var month = (new Date()).getMonth();
+                console.log(month);
+                month=month==0?12:month;
+                str2 =  month+"月原基本电费= "+(localCost/23).toFixed(2)+" * 23 = "+localCost+"元"+"<br>"
+                        +month+"月现在的基本电费= "+(gCost/32).toFixed(2)+" * 32 = "+gCost+"元"+"<br>"
+                        +month+"月节约基本电费=当月按容量计算基本电费-当月最大需量计算基本电费= "+localCost+"-"+gCost+" = "+more+"元"+"<br>"
+                        +"乙方收益（未含税）= 当月节约基本电费/1.17*"+ percent +"% = "+more+"/1.17*"+percent+"% ="+ k +"元"+"<br>"
+                        +"乙方收益（含税）= 乙方收益（未含税）*1.06 = "+k+"*1.06 ="+ mM +"元"+"<br>"
+                        +"甲方收益 = 当月节约基本电费-当月乙方收益（含税）= "+more+"-"+mM+" = "+yM+"元";
+
+                $(".detail").html(str2)
+            }
+
+
+
+            $(".result").on('click','.del',function () {
+                $(this).closest('p').remove();
+            })
+
+        })
+    })
+</script>
+</body>
+</html>
