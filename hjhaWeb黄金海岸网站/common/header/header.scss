@@ -1,0 +1,121 @@
+$headerHeight: 60px;
+//$headerBg:#393f4f;
+$headerBg: rgba(0, 0, 0, 0.5);
+
+.map-site{
+  height: 20px;
+  line-height: 20px;
+  background-color: #23adab;
+  color: #fff;
+  font-size: 12px;
+  b{
+    font-weight: normal;
+    cursor: pointer;
+    &:hover{
+      font-weight: bolder;
+    }
+  }
+  span{
+    margin:0 10px;
+  }
+  a:hover{
+    font-weight: bolder;
+    color: #fff;
+  }
+}
+
+.header.fixed{
+  position: fixed;
+  top:0;
+  left: 0;
+  right: 0;
+}
+.header{
+  .top-bar{
+    height: 140px;
+    .logo{
+      width: 156px;
+      height: 57px;
+      margin-right: 20px;
+    }
+    .logo-title{
+      padding-left: 20px;
+      border-left: 1px solid #1c2435;
+      p{
+        font-size: 23px;
+        color:#23adab;
+        letter-spacing: 5px
+      }
+      p:last-child{
+        letter-spacing: 1px
+      }
+    }
+
+    .top-right-phone{
+      font-size: 18px;
+      color: #535353;
+      font-weight: bold;
+      padding-right: 15px;
+      p:last-child{
+        font-size: 28px;
+        color: #23adab;
+        font-weight: normal;
+      }
+    }
+    .top-right-img{
+      width: 60px;
+      height: 60px;
+    }
+
+
+  }
+  .nav-bar{
+    height: 60px;
+    background-color: #23adab;
+    min-width: 1184px;
+  }
+  .nav-bar.nav-fix{
+    width: 100%;
+    position: fixed;
+    top:0;
+    left: 0;
+    z-index: 10;
+    background-color: rgba(35,173,171,0.7);
+    border-bottom: 1px solid #f8f8f8;
+  }
+  .page-link{
+      li{
+        height: $headerHeight;
+        line-height: $headerHeight;
+        font-size: 16px;
+        cursor: pointer;
+        border-bottom: 3px solid transparent;
+        position: relative;
+        a{
+          display: inline-block;
+          color: #fff;
+        }
+      }
+      li:hover{
+        text-decoration: none;
+        border-bottom-color: #535353;
+        a{
+          color: #fff;
+        }
+      }
+      li.active{
+        text-decoration: none;
+        border-bottom-color: #535353;
+        a{
+          color: #fff;
+        }
+      }
+    }
+
+  .header-height{
+    width: 100%;
+    height: 100%;
+  }
+
+}
+

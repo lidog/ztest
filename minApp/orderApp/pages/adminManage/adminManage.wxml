@@ -1,0 +1,29 @@
+<!--pages/adminManage/adminManage.wxml-->
+<view class='content'>
+  <view class='top flex-bet'>
+    <button type="primary" bindtap='addPerson'>新增员工</button>
+  </view>
+  <view class='person-list'>
+    <view class='title'>已有员工</view>
+    <view class='table-head flex-bet'>
+      <text class="w20">姓名</text>
+      <text class="w30">编号</text>
+      <text class="w20">权限</text>
+      <text class="w30">入职时间</text>
+    </view>
+    <view class='table-body'>
+      <view class='table-tr' wx:for="{{list}}" wx:key="{{index}}">
+        <view class='person-detail flex-bet'>
+          <text class="user w20" bindtap='showEidt' data-index="{{index}}">{{item.name}}</text>
+          <text class="w30">{{item.number}}</text>
+          <text class="w20">{{item.level==1?"管理":item.level==2?"收银":"普通"}}</text>
+          <text class="w30">{{item.addTime}}</text>
+        </view>
+        <view wx:if="{{item.show}}" class='person-edit flex-around'>
+          <button size="mini" type='primary' bindtap='editPerson' data-id="{{item.id}}">编辑</button>
+          <button size="mini" type='warn' bindtap='delectPerson' data-id="{{item.id}}">删除</button>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

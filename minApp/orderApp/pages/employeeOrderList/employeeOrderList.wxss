@@ -1,0 +1,23 @@
+/* pages/employeeOrderList/employeeOrderList.wxss */
+ @import "../yourOrderList/yourOrderList.wxss";
+ .order-title{
+   border-bottom: none;
+ }
+ .order-item{
+   border-bottom:1px solid #e4e4e4;
+ }
+ .food-item{
+   padding:0;
+ }
+ .search-input{
+   background: #f4f4f4;
+   padding:10rpx 20rpx;
+   width: 500rpx;
+ }
+ .option-item{
+   justify-content: center;
+ }
+ .search-icon{
+   align-self:  center;
+   margin-left: 20rpx;
+ }

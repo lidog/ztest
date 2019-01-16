@@ -1,0 +1,49 @@
+/* pages/adminManage/adminManage.wxss */
+ @import "../perOrder/perOrder.wxss";
+ .content{
+  padding:20rpx;
+ }
+ .top button{
+   width: 100%;
+ }
+ .person-list{
+   margin-top: 20rpx;
+   background: #fff;
+  
+ }
+ .title{
+  font-size: 20px; 
+  padding:20rpx 10rpx; 
+ }
+ .table-head{
+   font-size: 17px;
+   background-color:#dfdfdf;
+   padding:20rpx 10rpx;
+   text-align: center;
+ }
+ .table-body{
+  padding-bottom: 20rpx;
+ }
+ .person-detail{
+   font-size: 15px;
+   padding:10rpx 10rpx;
+    text-align: center;
+    position: relative;
+ }
+ .table-tr:nth-child(2n){
+   background-color: #f0f0f0;
+ }
+ .w20{
+   width: 20%;
+ }
+ .w30{
+   width: 30%;
+ }
+ .user{
+   color: #15478a;
+   font-weight: bold;
+ }
+ .person-edit{
+  padding:20rpx 0;
+  background: #d3d3d3;
+ }

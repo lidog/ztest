@@ -1,0 +1,40 @@
+<!--pages/adminStatistics/adminStatistics.wxml-->
+<view class='content'>
+    <view class='option-item'>
+        <picker class='picker flex-bet' mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+          <view class="picker-view">{{date}}</view>
+        </picker>
+        <input class='search-input' type='text' placeholder='搜索订单号，桌号'
+        cursor-spacing="100" confirm-type="search"></input>
+         <icon class='search-icon' type="search" size="20" />
+    </view>
+    <scroll-view scroll-y class='order-list' bindscrolltoupper="scrollTop" bindscrolltolower="scrollBottom">
+         <view class='order-item' wx:for="{{list}}" wx:key="{{item.orderId}}"
+           bindtap='orderDetail' data-orderid="{{item.orderId}}" data-index="{{index}}">
+           <view class='order-title flex-bet'>
+              <view class='order-id'>订单号：  <text class='bold'>{{item.orderId}}</text></view>
+              <text class='bold'>{{item.administor}}</text>
+              <text class='bold count'>+ {{item.total}}</text>
+           </view>
+           <view class='food-item flex-bet'>
+              <view class='order-id'>桌号：  <text class='bold'>{{item.table}}</text></view>
+              <view class='order-id'><text class='bold'>{{item.payType}}</text></view>
+              <view class='order-id'>{{item.time}}</view>
+           </view>
+           <view class='food-item-detail' wx:if="{{item.detail}}">
+              <view class='item-detail-top'>
+                <view class='food-detail flex-bet' wx:for="{{item.foods}}" wx:for-item="o" wx:key="o.id">
+                  <text>{{o.name}}</text>
+                  <text>x {{o.num}}</text>
+                  <text>{{o.count}}</text>
+                </view>
+              </view>
+              <view class='item-detail-bot'>
+                <button size="mini" catchtap='delectItem' data-index="{{index}}">删除</button>
+              </view>
+           </view>
+           <view wx:if="{{!item.detail}}" class='down'></view>
+           <view wx:if="{{item.detail}}" class='up'></view>
+        </view>
+    </scroll-view>
+</view>

@@ -1,0 +1,155 @@
+<!--pages/homePage/homePage.wxml-->
+<view>
+    <view class='has-order' bindtap='toYourOrder'>
+        <text>已下单</text>
+    </view>
+    <view class="top-tips">
+        <image src="/images/logo.jpg"></image>
+        <view class='tips'>
+            <view>
+                <text class='dian'>公告：今天新店开张，前一百位免茶位费。</text>
+            </view>
+            <view class='dian'>
+                <text class='cut'>减</text>
+                <text>：满 100 减 20</text>
+            </view>
+        </view>
+    </view>
+
+    <view class="content">
+
+        <scroll-view scroll-y class='left-tap'>
+            <view wx:for="{{foodsData}}" wx:for-index="idx" wx:key="item.name"
+                  class='foods-name {{nowIndex==idx?"on":" "}}' bindtap="chooseFood" data-food="{{idx}}">
+                <text>{{item.name}}</text>
+                <view wx:if="{{item.selectedNum>0}}" class='selected-num'>{{item.selectedNum>99?'99+':item.selectedNum}}</view>
+            </view>
+        </scroll-view>
+
+        <view class="right">
+            <block wx:for="{{foodsData}}" wx:for-index="idx" wx:key="item.name">
+                <view wx:if="{{nowIndex==idx}}" class="food-list-name">
+                    <text>{{item.name}}</text>
+                </view>
+                <scroll-view wx:if="{{nowIndex==idx}}" class='right-content' scroll-y="true" enable-back-to-top="true">
+                        <block wx:if="{{nowIndex==idx&&item.foodList.length>0}}" wx:for="{{item.foodList}}" wx:for-item="o" wx:for-index="index"
+                               wx:key="o.id">
+                            <view class="food">
+                                <view class="left-img" bindtap='lookForDetail' data-detail-id="{{o.id}}">
+                                    <image src="{{o.pic}}" mode='aspectFill'></image>
+                                    <view class='sell-out' wx:if="{{o.sellout}}">已售罄</view>
+                                </view>
+                                <view class="right-text">
+                                    <text class='name dian' bindtap='lookForDetail' data-detail-id="{{o.id}}">{{o.name}}</text>
+                                    <text class='describe dian'>{{o.describe}}</text>
+                                    <view class="sell-detail">
+                                        <view class='price-box'>
+                                            <text class="has-sell">月售:{{o.hasSell}}</text>
+                                            <text class='price'>¥ {{o.price}}</text>
+                                        </view>
+                                        <view class='select-tool' wx:if="{{o.sellout==false}}">
+                                            <image wx:if="{{o.selected>0}}" src="/images/icon/off.png"
+                                                   bindtap='selectFood' data-food-id="{{index}}" data-type="des" data-list-id="{{idx}}"></image>
+                                            <text wx:if="{{o.selected>0}}">{{o.selected}}</text>
+                                            <image src="/images/icon/add.png" bindtap='selectFood' data-food-id="{{index}}" data-list-id="{{idx}}"
+                                                   data-type="add"></image>
+                                        </view>
+                                    </view>
+                                </view>
+                            </view>
+                        </block>
+                        <block wx:if="{{nowIndex==idx&&item.foodList.length==0}}">
+                            <view class="no-data">
+                                <image src="/images/icon/nodata.png" mode="aspectFill"></image>
+                                <text>暂无数据</text>
+                            </view>
+                        </block>
+
+                </scroll-view>
+            </block>
+        </view>
+    </view>
+
+    <view class="sell-center">
+        <view class="sell-left" bindtap="toggleSellCar">
+            <image src="/images/icon/sellCar.png"></image>
+            <view wx:if="{{allNum>0}}" class='selected-num bottom-selected-num'>{{allNum>99?'99+':allNum}}</view>
+        </view>
+        <view class="sell-mid">
+            <view wx:if="{{account>0&&discounts>0}}">¥ {{account-discounts}}</view>
+            <view class='{{account>0&&discounts>0?"discounts":""}}'>¥{{account}}</view>
+        </view>
+        <view wx:if="{{account>0&&allNum>0}}" class="sell-right" bindtap="goForOrder">
+            <text>去结算</text>
+        </view>
+        <view wx:else class="sell-right chawei">
+            <text>茶位：5元</text>
+        </view>
+    </view>
+
+    <view class="layer" wx:if="{{sellCarShow}}">
+        <view class="cover" bindtap="toggleSellCar"></view>
+        <view class="layer-content sell-goods-list">
+            <view wx:if="{{allNum>0}}" class="sell-list-bar" bindtap="clearSell">
+                <image src="/images/icon/laji.png"></image>
+                <text> 清空购物车</text>
+            </view>
+            <view class='no-data no-selected-food' wx:if="{{allNum==0}}">
+              <image src="/images/icon/nodata.png" mode="aspectFill"></image>
+              <text>空空如也</text>
+            </view>
+            <scroll-view class="sell-scroll" scroll-y>
+                <block wx:for="{{foodsData}}" wx:for-index="i" wx:key="item.name">
+                    <block wx:for="{{item.foodList}}" wx:for-item="o" wx:for-index="k" wx:key="o.id">
+                        <block wx:if="{{o.selected>0}}">
+                            <view class="sell-item">
+                                <view class="sell-item-left">
+                                    <text class="sell-goods-name dian">{{o.name}}</text>
+                                    <text class="sell-goods-tips">+标准</text>
+                                </view>
+                                <view class="sell-item-mid">¥ {{o.selected*o.price}}</view>
+                                <view class="sell-item-right select-tool">
+                                    <image hidden="{{o.selected>0?false:true}}" src="/images/icon/off.png"
+                                           bindtap='selectFood' data-food-id="{{k}}" data-type="des" data-list-id="{{i}}"></image>
+                                    <text hidden="{{o.selected>0?false:true}}">{{o.selected}}</text>
+                                    <image src="/images/icon/add.png" bindtap='selectFood' data-food-id="{{k}}"
+                                           data-type="add" data-list-id="{{i}}"></image>
+                                </view>
+                            </view>
+                        </block>
+                    </block>
+                </block>
+            </scroll-view>
+        </view>
+    </view>
+
+
+    <view class='layer layer-out' wx:if="{{showDetail}}">
+      <view class='cover' bindtap="hideDetail"></view>
+      <block wx:for="{{foodsData}}" wx:for-index="i" wx:key="item.name">
+        <block wx:for="{{item.foodList}}" wx:for-item="o" wx:for-index="k" wx:key="o.id">
+          <view wx:if="{{detailId==o.id}}" class='layer-content food-detail'>
+            <image class="detail-pic" src="{{o.pic}}" mode="aspectFill"></image>  
+            <view class='detail-text'>
+              <text class='detail-name'>{{o.name}}</text>
+              <text class="detail-describe dian3">{{o.describe}}</text>
+            </view>
+            <view class='detail-bottom'>
+              <text class='detail-price'>¥ {{o.price}}</text>
+              <view class="sell-item-right select-tool" wx:if="{{!o.sellout}}">
+                  <image wx:if="{{o.selected>0}}" src="/images/icon/off.png"
+                          bindtap='selectFood' data-food-id="{{k}}" data-type="des" data-list-id="{{i}}"></image>
+                  <text wx:if="{{o.selected>0}}">{{o.selected}}</text>
+                  <image src="/images/icon/add.png" bindtap='selectFood' data-food-id="{{k}}"
+                          data-type="add" data-list-id="{{i}}"></image>
+              </view>
+              <view wx:else class='detail-tips'>
+                已售罄
+              </view>
+            </view>
+          </view> 
+        </block>
+      </block>
+    </view>
+
+</view>

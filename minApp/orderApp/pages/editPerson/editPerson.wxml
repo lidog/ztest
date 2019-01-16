@@ -1,0 +1,44 @@
+<!--pages/editPerson/editPerson.wxml-->
+<view class='content'>
+
+  <view class='option-item'>
+    <view class='opiton-title'>姓名：</view>
+    <view class='option-val tips'>
+      <input type="number" value='{{name}}'/>
+    </view>
+  </view>
+  <view class='option-item'>
+    <view class='opiton-title'>编号：</view>
+    <view class='option-val tips'>
+      <input type="number" value='{{number}}'/>
+    </view>
+  </view>
+  <view class='option-item'>
+    <view class='opiton-title'>权限：</view>
+    <view class='option-val tips'>
+      <radio-group class="radio-group" bindchange="radioChange">
+       <view class='raido-tr flex-bet' wx:for="{{items}}">
+        <label class="radio">
+          <radio value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+        </label>
+        <view class='info'>{{item.info}}</view>
+       </view>
+      </radio-group>
+    </view>
+  </view>
+  <view class='option-item date-one'>
+    <view class='opiton-title'>入职时间：</view>
+    <picker class='option-val date' mode="date" value="{{date}}" bindchange="bindDateChange">
+      <view class="picker-view">{{date}}</view>
+    </picker>
+  </view>
+  <view class='option-item'>
+    <view class='opiton-title'></view>
+    <picker class='option-val date' mode="time" value="{{time}}" bindchange="bindTimeChange">
+      <view class="picker-view">{{time}}</view>
+    </picker>
+  </view>
+  <view class='bottom flex-bet'>
+    <button type="primary" bindtap='addPerson'>保存</button>
+  </view>
+</view>

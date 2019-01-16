@@ -1,0 +1,18 @@
+.live-action{
+  padding:20px;
+  flex-flow: wrap;
+  li{
+    width: 45%;
+    margin-bottom: 30px;
+    text-align: center;
+    span{
+      max-height: 300px;
+      overflow: hidden;
+    }
+    p{
+      font-size: 16px;
+      height: 40px;
+      line-height: 40px;
+    }
+  }
+}

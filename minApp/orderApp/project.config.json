@@ -1,0 +1,103 @@
+{
+	"description": "项目配置文件。",
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "1.9.94",
+	"appid": "wxfed21a63d12763ad",
+	"projectname": "orderApp",
+	"isGameTourist": false,
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 10,
+			"list": [
+				{
+					"id": 0,
+					"name": "homePage",
+					"pathName": "pages/homePage/homePage",
+					"query": ""
+				},
+				{
+					"id": 1,
+					"name": "preOrder",
+					"pathName": "pages/perOrder/perOrder",
+					"query": ""
+				},
+				{
+					"id": 2,
+					"name": "yourOrder",
+					"pathName": "pages/yourOrder/yourOrder",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "yourOrderList",
+					"pathName": "pages/yourOrderList/yourOrderList",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "employeeOrderList",
+					"pathName": "pages/employeeOrderList/employeeOrderList",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "employeeOrderDetail",
+					"pathName": "pages/employeeOrderDetail/employeeOrderDetail",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "adminHome",
+					"pathName": "pages/adminHome/adminHome",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "adminOrder",
+					"pathName": "pages/adminOrder/adminOrder",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "adminStatistics",
+					"pathName": "pages/adminStatistics/adminStatistics",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "adminManage",
+					"pathName": "pages/adminManage/adminManage",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "editPerson",
+					"pathName": "pages/editPerson/editPerson"
+				}
+			]
+		}
+	}
+}

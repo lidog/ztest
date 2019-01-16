@@ -1,0 +1,72 @@
+
+ <view>
+  <scroll-view scroll-y class='order-detail'>
+      <view class='option-item zhuo'>
+        <view class='opiton-title'>订单号：</view>
+        <view class='option-val'>{{orderId}}</view>
+      </view>
+      <view class='food-list'>
+        <block wx:for="{{preOrderData}}" wx:key="{{item.name}}">
+          <view class='food-list-item'>
+            <view class='list-left'>
+              <view class='had-made' wx:if="{{item.hadMade}}">
+                 <icon type="success" size="40"/>
+              </view>
+              <image src='{{item.pic}}'></image>
+              <view class='title-box'>
+                <text class='title dian'>{{item.name}}</text>
+                <text class='num'>×{{item.selected}}</text>
+              </view>
+            </view>
+            <view>
+              <button wx-if="{{item.hadMade&&state==1}}" size="mini" bindtap='hadMadeItem' data-index="{{index}}">取消</button>
+              <button wx-if="{{!item.hadMade}}" size="mini" bindtap='hadMadeItem' data-index="{{index}}">完成</button>
+            </view>
+          </view> 
+        </block>
+      </view>
+      <view class='option-item'>
+        <view class='opiton-title'>订单状态：</view>
+        <view class='option-val state {{state==-1?"gray":state==0?"red":state==1?"yellow":state==2?"blue":"green"}}'>
+         {{state==-1?"未支付":state==0?"待确认":state==1?"制作中":state==2?"待配送":"已完成"}}
+        </view>
+      </view>
+      <view class='option-item'>
+        <view class='opiton-title'>桌号：</view>
+        <view class='option-val'>{{table}} 号</view>
+      </view>
+      <view class='option-item'>
+        <view class='opiton-title'>用餐人数</view>
+        <view class='option-val'>
+          <view class="picker">{{person}} 人</view>
+        </view>
+      </view> 
+      <view class='option-item'>
+        <view class='opiton-title'>备注：</view>
+        <view class='option-val tips'>
+          <text>{{tips}}</text>
+        </view>
+      </view>
+       <view class='option-item'>
+        <view class='opiton-title'>支付方式</view>
+        <view class='option-val'>{{payType[payTypeIndex]}}</view>
+      </view>
+      <view class='option-item' wx:if="{{payTypeIndex!=0}}">
+        <view class='opiton-title'>收款人</view>
+        <view class='option-val'>{{user}}</view>
+      </view>
+    </scroll-view>
+    <view class='order-bottom payed-bot flex-around'>
+        <button wx:if="{{state==-1}}" size="mini" type='warn' bindtap='hasPay'>确认已支付</button>
+        <button wx:if="{{state==-1}}" size="mini" bindtap='canserOrder'>无效订单</button>
+
+        <button wx:if="{{state==0}}" size="mini" type="primary" bindtap='receiveOrder'>确认订单</button>
+
+        <button wx:if="{{state==1}}" size="mini" type="primary" bindtap='hadMade'>制作完成</button>
+
+        <button wx:if="{{state==2}}" size="mini" type="primary" bindtap='hadServing'>配送完成</button>
+
+        <button wx:if="{{state==3}}" size="mini" type="primary" bindtap='backToList'>返回列表</button>
+    </view>
+
+ </view>

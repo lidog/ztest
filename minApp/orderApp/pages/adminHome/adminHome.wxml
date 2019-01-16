@@ -1,0 +1,12 @@
+<!--pages/adminHome/adminHome.wxml-->
+<view class='page'>
+  <view class='view'>
+    <view class='fn' bindtap='toOrder'>订单流水</view>
+  </view>
+   <view class='view'>
+    <view class='fn' bindtap='toStatistics'>销量统计</view>
+  </view>
+   <view class='view'>
+    <view class='fn' bindtap='toManage'>员工管理</view>
+  </view>
+</view>

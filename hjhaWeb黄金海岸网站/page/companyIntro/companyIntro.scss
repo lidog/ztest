@@ -1,0 +1,31 @@
+body{
+  .profile-content .profile-right p{
+    line-height: 22px;
+  }
+  .certificate-content .certificate-slider{
+    height: 400px;
+  }
+  .certificate-content .certificate-slider .slider-box .report .report-img{
+    box-shadow: 0 1px 10px #1d1d1d;
+  }
+  .ad-content .ad-control li:last-child{
+    letter-spacing: 2px;
+  }
+
+  .profile-content .profile-left{
+    display: none;
+  }
+  .profile-content .profile-right{
+    width: auto;
+    p{
+      font-size: 20px;
+      line-height: 30px;
+    }
+    h3{
+      font-size: 25px;
+      color: #23adab;
+      height: 45px;
+    }
+  }
+
+}

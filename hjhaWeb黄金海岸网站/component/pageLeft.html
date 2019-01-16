@@ -1,0 +1,56 @@
+<div class="left-inner-content" id="leftContent">
+    <dl class="hide dl-one">
+        <dt>走进黄金海岸</dt>
+        <dd><a href="case.html">工程案例</a></dd>
+        <dd><a href="flow.html">采购流程</a></dd>
+        <dd><a href="living.html">工厂实景</a></dd>
+    </dl>
+    <dl class="hide dl-two">
+        <dt>联系环境海岸</dt>
+        <dd><span>电话：</span>180-2753-1507</dd>
+        <dd><span>微信：</span>180-2753-1507</dd>
+    </dl>
+    <dl class="dl-one product-type" id="productType">
+        <dt>场所分类</dt>
+        <dd><a href="product.html?type=1">酒店床垫</a><a href="product.html?type=2">宾馆床垫</a></dd>
+        <dd><a href="product.html?type=3">公寓床垫</a><a href="product.html?type=4">宿舍床垫</a></dd>
+        <dd><a href="product.html?type=5">学生床垫</a><a href="product.html?type=6">民宿床垫</a></dd>
+        <dt>材料分类</dt>
+        <dd><a href="product.html?type=7">弹簧床垫</a><a href="product.html?type=8">独立弹簧床垫</a></dd>
+        <dd><a href="product.html?type=9">棕床垫</a><a href="product.html?type=10">乳胶床垫</a></dd>
+        <dd><a href="product.html?type=11">弹簧加棕床垫</a><a href="product.html?type=12">弹簧加乳胶床垫</a></dd>
+    </dl>
+
+    <dl class="dl-one list-type" id="newsType"></dl>
+    <script type="text/html" id="newsTypeTpl">
+        <dt>热门新闻</dt>
+        <% for(var i=0;i< list.length;i++){ %>
+        <dd class="dian">
+           <a target="_blank" href="newDetail.html?id=<%=list[i].id%>" title="<%=list[i].title%>"><%=list[i].title%></a>
+        </dd>
+        <% } %>
+    </script>
+
+    <dl class="dl-one list-type" id="caseType"></dl>
+    <script type="text/html" id="caseTypeTpl">
+        <dt>热门案例</dt>
+        <% for(var i=0;i< list.length;i++){ %>
+        <dd class="dian">
+            <a target="_blank" href="caseDetail.html?id=<%=list[i].id%>" title="<%=list[i].title%>"><%=list[i].title%></a>
+        </dd>
+        <% } %>
+    </script>
+
+    <dl class="dl-three" id="dlThree"></dl>
+    <script type="text/html" id="dlThreeTpl">
+        <dt>床垫产品</dt>
+        <% for(var i=0;i< list.length;i++){ %>
+            <dd>
+                <span class="img-span">
+                       <a target="_blank" href="productDetail.html?id=<%=list[i].id%>"><img alt="<%=list[i].title%>" src="<%=list[i].thumbnail%>"></a>
+                </span>
+                <p class="dian"><a target="_blank" href="productDetail.html?id=<%=list[i].id%>"><%=list[i].title%></a></p>
+            </dd>
+        <% } %>
+    </script>
+</div>

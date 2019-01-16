@@ -1,0 +1,101 @@
+/**app.wxss**/
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+  font-family: '微软雅黑';
+} 
+.dian{
+  width:100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.dian3{
+overflow : hidden;
+text-overflow: ellipsis;
+display: -webkit-box!important;
+-webkit-line-clamp: 3;
+-webkit-box-orient: vertical;
+}
+.flex-bet{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.flex-around{
+   display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.bold{
+  font-weight: bold;
+}
+
+view,text,icon,scroll-view{
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+
+/* 状态样式 */
+ .state{
+   padding:5rpx 10rpx;
+   border-radius: 5rpx;
+   color: #fff; 
+ }
+ .state.gray{
+   background: gray;
+ }
+ .state.red{
+   background: red;
+ }
+ .state.yellow{
+   background: #ddbb5d;
+ }
+ .state.green{
+   background: #1aac19;
+ }
+ .state.blue{
+   background: #30a7ec;
+ }
+
+
+/* 弹窗 */
+.layer{
+  position: absolute;
+  top:0;
+  left: 0;
+  right: 0;
+  bottom:100rpx;
+}
+.cover{
+  position: absolute;
+  top:0;
+  left: 0;
+  bottom:0;
+  right:0;
+  background: rgba(0,0,0,0.5);
+  z-index: 1;
+}
+.layer-content{
+  z-index:2;
+}
+.layer-out{
+  bottom:0;
+}
+.layer-out .cover{
+  z-index: 11
+}
+.layer-out .layer-content{
+  z-index: 12;
+}

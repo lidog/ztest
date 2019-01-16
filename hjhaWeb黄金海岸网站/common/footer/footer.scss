@@ -1,0 +1,91 @@
+$footerBg:#fff;
+//$footerBg:#333333;
+$footerFs:12px;
+.footer{
+  width: 100%;
+  background-color: $footerBg;
+  padding:0 0 25px 0;
+  text-align: center;
+  .bot-nav{
+    width: 100%;
+    background-color: #23adab;
+    border-bottom: 1px solid #f8f8f8;
+    .page-link li{
+      margin-right: 0;
+    }
+  }
+  .footer-top{
+    .footer-logo{
+      width: 20%;
+    }
+    .company-info{
+      width: 50%;
+      text-align: left;
+      padding-left: 20px;
+      border-left: 3px solid #999;
+      line-height: 30px;
+    }
+    .footer-er{
+      width: 15%;
+      margin-right: 30px;
+    }
+  }
+  .footer-bot{
+    font-size: 12px;
+    margin-top: 18px;
+    line-height: 12px;
+    color: #999;
+    border-top:1px solid #999;
+    padding: 20px 0;
+    p:last-child{
+      margin-top:12px;
+      span{
+        margin-left: 30px;
+      }
+    }
+  }
+}
+
+.tel{
+  position: fixed;
+  right: 20px;
+  bottom: 120px;
+  font-size: 40px;
+  font-weight: bolder;
+  padding: 10px 20px;
+  background-color: #66b7ea;
+  border-radius: 5px;
+  color: #fff;
+  animation: move 8s infinite;
+  span{
+    vertical-align: middle;
+    width: 45px;
+    height: 45px;
+    margin-right: 10px;
+  }
+}
+
+@keyframes move{
+  /* 0%表示动画开始的关键帧 */
+  0%{
+    transform:rotateY(0);
+    animation-timing-function: ease-out;
+  }
+
+  25%{
+    transform:rotateY(0deg);
+    animation-timing-function: ease-in;
+  }
+
+  50%{
+    transform:rotateY(0deg);
+  }
+
+  75%{
+    transform:rotateY(360deg);
+  }
+  /* 动画结束时的关键帧 */
+  0%{
+    transform:rotateY(0);
+  }
+}

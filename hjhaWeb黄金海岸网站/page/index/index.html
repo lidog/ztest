@@ -1,0 +1,240 @@
+<!-- 
+ * @Author lizhenhua
+ * @version 2017-08-10
+ * @description Title
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>床垫厂家,床垫厂直销,酒店床垫批发,东莞黄金海岸家具公司</title>
+    <meta name="baidu-site-verification" content="xoeOXUIuPn" />
+    <meta name="keywords" content="床垫厂家,床垫厂,酒店床垫,床垫批发">
+    <meta name="description" content="黄金海岸家具公司,专业30年酒店床垫厂家.提供各类床垫定制、床垫批发,厂家直销联系电话:180-2753-1507">
+</head>
+<body>
+<div id="header"></div>
+<div class="content">
+    <div id="banner"></div>
+    <div class="container">
+        <div class="case mt40">
+            <div class="part-title flex-between">
+                <div class="part-title-text">
+                    <h4>工程案例</h4>
+                    <p>CASE</p>
+                </div>
+                <div class="part-title-more">
+                    <a href="case.html">更多案例</a> <span class="right-min" img-src="rightMin.png"></span>
+                </div>
+            </div>
+            <div class="case-content slider" id="caseSlider">
+                <div class="slider-box" id="caseSliderBox"></div>
+                <ul class="slider-point case-slider-point clear" id="caseSliderPoint"></ul>
+                <script type="text/html" id="sliderItemTpl">
+                    <% for(var i=0;i< list.length;i++){ %>
+                    <div class="slider-item clear">
+                        <div class="case-content-left fl">
+                            <a href="caseDetail.html?id=<%=list[i].id%>" target="_blank"><span class="wh100 img-span"><img alt="<%=list[i].title%>" src="<%=list[i].thumbnail%>"></span></a>
+                        </div>
+                        <div class="case-content-right fl">
+                            <h3 class="dian"><%=list[i].title%></h3>
+                            <p class="dian4"><%=list[i].introduction%></p>
+                            <div class="btn more"><a href="caseDetail.html?id=<%=list[i].id%>" target="_blank">立即查看</a><span img-src="rightMin.png"></span></div>
+                        </div>
+                    </div>
+                    <% } %>
+                </script>
+                <script type="text/html" id="caseSliderPointTpl">
+                    <% for(var i=0;i< list.length;i++){ %>
+                        <li class="<%=i==0?'on':''%>"><%=i+1%></li>
+                    <% } %>
+                </script>
+            </div>
+        </div>
+
+        <div class="min-banner flex-around">
+            <div>业务咨询：<span class="phone-num">180-2753-1507</span></div>
+            <p class="flex-around">
+                <span>黄金海岸</span>
+                <span>工装类床垫源头厂家</span>
+                <span>三十年专注床垫研发生产</span>
+            </p>
+        </div>
+
+        <div id="introduce"></div>
+
+        <div id="serverType"></div>
+
+        <div id="advantage"></div>
+
+        <div class="clients mt40">
+            <div class="part-title flex-between">
+                <div class="part-title-text">
+                    <h4>合作客户</h4>
+                    <p>CLIENTS</p>
+                </div>
+            </div>
+            <div class="clients-content" style="padding:50px;">
+                <span class="wh100" img-src="hezuo.png"></span>
+            </div>
+        </div>
+
+        <div class="min-banner flex-around">
+            <div>业务咨询：<span class="phone-num">180-2753-1507</span></div>
+            <p class="flex-around">
+                <span>黄金海岸</span>
+                <span>工装类床垫源头厂家</span>
+                <span>三十年专注床垫研发生产</span>
+            </p>
+        </div>
+
+        <div class="factory-scene">
+            <div class="part-title flex-between">
+                <div class="part-title-text">
+                    <h4>工厂实景</h4>
+                    <p>FACTORY SCENE</p>
+                </div>
+            </div>
+            <div class="factory-scene-content">
+                <ul class="factory-img clear" id="factoryImg"></ul>
+                <script type="text/html" id="factoryImgTpl">
+                    <% for(var i=0;i< list.length;i++){ %>
+                    <li>
+                        <a target="_blank" href="living.html?id=<%=list[i].id%>"><span class="img-span scale-img"><img alt="<%=list[i].title%>" src="<%=list[i].thumbnail%>"></span></a>
+                            <a target="_blank" href="living.html?id=<%=list[i].id%>"><div class="factory-text"><%=list[i].title%></div></a>
+                    </li>
+                    <% } %>
+                </script>
+            </div>
+        </div>
+
+        <div id="process"></div>
+
+        <div id="certificate"></div>
+
+        <div class="min-banner flex-around">
+            <div>业务咨询：<span class="phone-num">180-2753-1507</span></div>
+            <p class="flex-around">
+                <span>黄金海岸</span>
+                <span>工装类床垫源头厂家</span>
+                <span>三十年专注床垫研发生产</span>
+            </p>
+        </div>
+
+        <div class="product mt40">
+            <div class="part-title flex-between">
+                <div class="part-title-text">
+                    <h4>产品展示</h4>
+                    <p>FACTORY SCENE</p>
+                </div>
+            </div>
+            <div class="factory-scene-content">
+                <ul class="factory-img clear" id="productImg"></ul>
+                <script type="text/html" id="productImgTpl">
+                    <% for(var i=0;i< list.length;i++){ %>
+                    <li>
+                        <a target="_blank" href="productDetail.html?id=<%=list[i].id%>">
+                            <span class="img-span scale-img pd-img"><img alt="<%=list[i].title%>" src="<%=list[i].thumbnail%>"></span>
+                            <div class="factory-text"><%=list[i].title%></div>
+                        </a>
+                    </li>
+                    <% } %>
+                </script>
+            </div>
+        </div>
+
+        <div class="news">
+            <div class="part-title flex-between">
+                <div class="part-title-text">
+                    <h4>新闻动态</h4>
+                    <p>NEWS</p>
+                </div>
+                <div class="part-title-more">
+                    <a href="news.html">查看更多</a> <span class="right-min" img-src="rightMin.png"></span>
+                </div>
+            </div>
+            <div class="news-part">
+                <div class="news-left fl">
+                    <ul class="tab-title news-title bot clear" id="newsTitle">
+                        <li class="on">公司动态</li>
+                        <li>行业动态</li>
+                    </ul>
+                    <ul class="tab-item news-item" id="newsItem">
+                        <li class="on" id="newsOne"></li>
+                        <li id="newsTwo"></li>
+                    </ul>
+                    <script type="text/html" id="newsTpl">
+                        <block>
+                            <div class="news-item-top clear">
+                                <div class="news-detail-left fl">
+                                    <span class="wh100"><img alt="<%=list.title%>" src="<%=list.thumbnail%>"></span>
+                                </div>
+                                <div class="news-detail-right fl">
+                                    <h3><a href="newDetail.html?id=<%=list.id%>" target="_blank"><%=list.title%></a></h3>
+                                    <p class="news-time">发布时间：<%=list.createTime%></p>
+                                    <p class="news-text dian3"><a target="_blank" href="newDetail.html?id=<%=list.id%>"><%=list.introduction%></a>
+                                    </p>
+                                </div>
+                            </div>
+                            <ul class="news-item-bottom">
+                                <% for(var i=0;i < list.arr.length;i++){ %>
+                                <li class="flex-between">
+                                    <div class="news-list-title dian"><a target="_blank" href="newDetail.html?id=<%=list.arr[i].id%>"><%=list.arr[i].title%></a>
+                                    </div>
+                                    <div class="news-time">发布时间：<%=list.arr[i].createTime%></div>
+                                </li>
+                                <% } %>
+                            </ul>
+                        </block>
+                    </script>
+                </div>
+                <div class="news-right fl">
+                    <h1>联系我们</h1>
+                    <p>咨询热线：180-2753-1507</p>
+                    <p>微信：HA1hao（右图二维码）</p>
+                    <p>QQ：2858288193</p>
+                    <div class="address-img">
+                       <iframe src="baidu.html" width="100%" height="100%"></iframe>
+                    </div>
+                    <p>公司地址：东莞市黄江镇田心黄金工业城B001（黄金海岸展厅）</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="one-stop">
+            <div class="one-stop-top">
+                <h4>ONE-STOP PURCHASE</h4>
+                <h3>一站式采购</h3>
+            </div>
+            <div class="one-stop-bot">
+                <div class="stop-item">
+                    <div class="stop-item-top"><span img-src="6.png"></span></div>
+                    <p>研发</p>
+                </div>
+                <div class="stop-item">
+                    <div class="stop-item-top"><span img-src="5.png"></span></div>
+                    <p>生产</p>
+                </div>
+                <div class="stop-item">
+                    <div class="stop-item-top"><span img-src="1.png"></span></div>
+                    <p>配送</p>
+                </div>
+                <div class="stop-item">
+                    <div class="stop-item-top"><span img-src="2.png"></span></div>
+                    <p>售后</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="footer"></div>
+<script>var _hmt = _hmt || [];</script>
+<script id="omos" src="http://hm.omos88.com/collect.js?GIYTIMJMM5RTCOJYHEXGG33N"></script>
+<script src="../../plugins/jquery.min.js"></script>
+<script name="baidu-koubei-verification" src="//ikoubei.baidu.com/embed/cfe942f9c03afc7e1100028cc15c915e"></script>
+<script src="http://push.zhanzhang.baidu.com/push.js"></script>
+<script src="http://js.passport.qihucdn.com/11.0.1.js?ffcadb95f854da3b566081c3d672eaf9" id="sozz"></script>
+<script src="common"></script>
+
+</body>
+</html>

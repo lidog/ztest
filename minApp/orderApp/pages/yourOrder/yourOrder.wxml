@@ -1,0 +1,65 @@
+<!--pages/yourOrder.wxml-->
+ <view>
+  <scroll-view scroll-y class='order-detail'>
+      <view class='option-item zhuo'>
+        <view class='opiton-title'>订单号：</view>
+        <view class='option-val'>{{orderId}}</view>
+      </view>
+      <view class='food-list'>
+        <block wx:for="{{preOrderData}}" wx:key="{{item.name}}">
+          <view class='food-list-item'>
+            <view class='list-left'>
+              <image src='{{item.pic}}'></image>
+              <view class='title-box'>
+                <text class='title dian'>{{item.name}}</text>
+                <text class='num'>×{{item.selected}}</text>
+              </view>
+            </view>
+            <view class='price'>¥ {{item.price*item.selected}}</view>
+          </view> 
+        </block>
+      </view>
+      <view class='option-item'>
+        <view class='opiton-title'>桌号：</view>
+        <view class='option-val'>{{table}}</view>
+      </view>
+      <view class='option-item'>
+        <view class='opiton-title'>用餐人数</view>
+        <view class='option-val'>
+          <view class="picker">{{personNum[person]}}</view>
+        </view>
+      </view> 
+      <view class='option-item'>
+        <view class='opiton-title'>茶位费</view>
+        <view class='option-val'>
+          <view class="picker">¥ {{feeAll}}</view>
+        </view>
+      </view>     
+      <view class='option-item'>
+        <view class='opiton-title'>支付方式</view>
+        <view class='option-val'>{{payType[index]}}</view>
+      </view>
+      <view class='option-item'>
+        <view class='opiton-title'>备注：</view>
+        <view class='option-val tips'>
+          <textarea value="{{tips}}" auto-height disabled='true'/>
+        </view>
+      </view>
+
+      <!-- <view class='go-back'>
+        <button type='primary' bindtap="goBackHome">返回首页</button>
+      </view> -->
+
+    </scroll-view>
+    <view class='order-bottom payed-bot'>
+      <view class='bot-left'>
+        <text class='dis'>已经优惠 ¥{{discounts}}</text>
+        <view class='he'>
+          已支付<text> ¥{{account-discounts+feeAll}}</text>
+        </view>
+      </view>
+      <view wx:if="{{type==1}}" class='to-pay payed' bindtap="addFoods">
+        加菜
+      </view>
+    </view>
+ </view>

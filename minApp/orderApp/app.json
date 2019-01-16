@@ -1,0 +1,22 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/homePage/homePage",
+    "pages/perOrder/perOrder",
+    "pages/yourOrder/yourOrder",
+    "pages/yourOrderList/yourOrderList",
+    "pages/employeeOrderList/employeeOrderList",
+    "pages/employeeOrderDetail/employeeOrderDetail",
+    "pages/adminHome/adminHome",
+    "pages/adminOrder/adminOrder",
+    "pages/adminStatistics/adminStatistics",
+    "pages/adminManage/adminManage",
+    "pages/editPerson/editPerson"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#333333",
+    "navigationBarTitleText": "酱虎烘焙",
+    "navigationBarTextStyle": "white"
+  }
+}

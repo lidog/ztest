@@ -1,0 +1,36 @@
+/* pages/editPerson/editPerson.wxss */
+ @import "../perOrder/perOrder.wxss";
+ .date{
+   background-color:#f8f8f8;
+    padding:10rpx 20rpx;
+    width:300rpx;
+    font-size:16px;
+    display:inline-block;
+    border-radius:10rpx;
+    margin:0;
+    text-align:center;
+ }
+ .option-item .picker-view{
+   width: 300rpx;
+   height:50rpx;
+ }
+ .date-one{
+   border-bottom:none;
+ }
+
+ .raido-tr{
+   padding:20rpx 0;
+ }
+ .raido-tr .radio{
+   width: 200rpx;
+ }
+ .info{
+   width: 300rpx;
+   font-size: 14px;
+ }
+ .bottom{
+  padding:40rpx 20rpx;
+ }
+  .bottom button{
+    width: 100%;
+  }

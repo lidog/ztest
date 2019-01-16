@@ -1,0 +1,58 @@
+<!--
+ * @Author lizhenhua
+ * @version 2017-08-10
+ * @description Title
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>乳胶床垫厂家,棕垫批发,床垫厂家直销,东莞黄金海岸家具公司</title>
+    <meta name="baidu-site-verification" content="xoeOXUIuPn" />
+    <link rel="stylesheet" href="../../plugins/jqueryPagination/jquery.pagination.css">
+    <meta name="keywords" content="乳胶床垫,棕垫,棕榈床垫,弹簧床垫">
+    <meta name="description" content="黄金海岸家具公司,专业30年酒店床垫厂家.提供各类床垫定制、床垫批发,厂家直销联系电话:180-2753-1507">
+</head>
+<body>
+<div id="header"></div>
+<div class="content">
+    <div id="banner"></div>
+    <div class="container clear">
+        <div class="page-left" id="pageLeft"></div>
+        <div class="page-right fl">
+            <div class="page-right-title">
+                <a href="index.html">首页</a>-<span id="typeName"></span>
+            </div>
+            <ul class="live-action flex-between" id="liveAction"></ul>
+            <script type="text/html" id="liveActionTpl">
+                <% if(list.length==0){ %>
+                <li class="no-data">没有更多数据 <br><a href="product.html" style="font-size: 16px;">查看全部产品</a></li>
+                <% }else{ %>
+                <% for(var i=0;i< list.length;i++){ %>
+                <li>
+                    <span class="scale-img wh100 img-span">
+                       <a target="_blank" href="productDetail.html?id=<%=list[i].id%>"><img alt="<%=list[i].title%>" src="<%=list[i].thumbnail%>"></a>
+                    </span>
+                    <p><a target="_blank" href="productDetail.html?id=<%=list[i].id%>"><%=list[i].title%></a></p>
+                </li>
+                <% } %>
+                <% } %>
+            </script>
+            <div class="page-num" id="pageNum">
+                <div id="pagination"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="footer"></div>
+<script src="../../plugins/jquery.min.js"></script>
+<script src="../../plugins/jqueryPagination/jquery.pagination.min.js"></script>
+<script name="baidu-koubei-verification" src="//ikoubei.baidu.com/embed/cfe942f9c03afc7e1100028cc15c915e"></script>
+
+<script src="http://push.zhanzhang.baidu.com/push.js"></script>
+<script src="http://js.passport.qihucdn.com/11.0.1.js?ffcadb95f854da3b566081c3d672eaf9" id="sozz"></script>
+<script src="common"></script>
+<script>var _hmt = _hmt || [];</script>
+<script id="omos" src="http://hm.omos88.com/collect.js?GIYTIMJMM5RTCOJYHEXGG33N"></script>
+</body>
+</html>

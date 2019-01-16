@@ -1,0 +1,53 @@
+/* pages/yourOrderList/yourOrderList.wxss */
+ @import "../perOrder/perOrder.wxss";
+
+ .content{
+    padding: 20rpx;
+    background:#f4f4f4;
+ }
+
+ .order-list{
+   position: absolute;
+   padding:20rpx;
+   top:165rpx;
+   bottom: 0rpx;
+   left:0rpx;
+   right: 0rpx;
+ }
+ .more-item{
+   font-size: 17px;
+   padding:0 20rpx;
+   padding-bottom: 10rpx;
+ }
+ .order-item{
+   margin-bottom: 20rpx;
+   background: #fff;
+   padding:20rpx;
+   font-size: 14px;
+ }
+ .order-title{
+    border-bottom: 1px solid #e4e4e4;
+    height: 70rpx;
+    font-size: 16px;
+ }
+.food-item{
+  color: #666666;
+  height: 50rpx;
+  margin:5rpx 0;
+  padding:0 10rpx;
+}
+.food-item-title{
+  max-width: 300rpx;
+}
+.order-data{
+  border-top: 1px solid #e4e4e4;
+    height: 60rpx;
+    font-size: 15px;
+    text-align: right;
+    line-height: 60rpx;
+}
+.number,.total{
+  font-size: 16px;
+  font-weight: bold;
+  margin:0 5rpx;
+}

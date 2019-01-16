@@ -1,0 +1,63 @@
+<view class='content'>
+  <scroll-view scroll-y class='order-detail'>
+    <view class='option-item zhuo'>
+      <view class='opiton-title'>桌号：</view>
+      <view class='option-val'>{{table}}</view>
+    </view>
+    <view class='food-list'>
+      <block wx:for="{{preOrderData}}" wx:key="{{item.name}}">
+        <view class='food-list-item'>
+          <view class='list-left'>
+            <image src='{{item.pic}}'></image>
+            <view class='title-box'>
+              <text class='title dian'>{{item.name}}</text>
+              <text class='num'>×{{item.selected}}</text>
+            </view>
+          </view>
+          <view class='price'>¥ {{item.price*item.selected}}</view>
+        </view> 
+      </block>
+    </view>
+    
+    <view class='option-item'>
+      <view class='opiton-title'>用餐人数</view>
+      <view class='option-val'>
+        <input wx:if="{{person==9}}" type="number" value='{{person}}'/>
+        <picker class='pic-person' wx:if="{{person!=9}}" bindchange="personChange" value="{{person}}" range="{{personNum}}">
+          <view class="picker">{{personNum[person]}}</view>
+        </picker>
+      </view>
+    </view>  
+    <view class='option-item'>
+      <view class='opiton-title'>茶位费</view>
+      <view class='option-val'>
+        <view class="picker">¥ {{feeAll}}</view>
+      </view>
+    </view>  
+    <view class='option-item'>
+      <view class='opiton-title'>支付方式</view>
+      <view class='option-val'>
+        <picker bindchange="payTypeChange" bindcancel="canserPicker" value="{{index}}" range="{{payType}}">
+          <view class="picker">{{payType[index]}}</view>
+        </picker>
+      </view>
+    </view>
+    <view class='option-item'>
+      <view class='opiton-title'>备注：</view>
+      <view class='option-val'>
+         <textarea bindinput="tipsVal" value='{{tips}}' auto-height/>
+      </view>
+    </view>
+  </scroll-view>
+  <view class='order-bottom'>
+    <view class='bot-left'>
+      <text class='dis'>已经优惠 ¥{{discounts}}</text>
+      <view class='he'>
+        合计<text> ¥{{account-discounts+feeAll}}</text>
+      </view>
+    </view>
+    <view class='to-pay' bindtap='toPay'>
+      去支付
+    </view>
+  </view>
+</view>

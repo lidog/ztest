@@ -1,0 +1,145 @@
+page{
+  height: 100%;
+}
+.content{
+  background: #f4f4f4;
+  position: relative;
+  height: 100%;
+}
+
+/* 底部 */
+.order-bottom{
+  height: 120rpx;
+  display: flex;
+  justify-content: space-between;
+  background: #ffffff;
+  position: absolute;
+  bottom:0;
+  left: 0;
+  width: 100%;
+  color:#333333;
+}
+.bot-left{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+  flex: 1;
+}
+.dis{
+  font-size: 15px;
+}
+.he text{
+  color: red;
+}
+.to-pay{
+  width: 220rpx;
+  background: #f7d373;
+  height: 100%;
+  line-height: 120rpx;
+  font-size: 18px;
+  font-weight: bolder;
+  color: #333;
+  text-align: center;
+}
+
+
+/* 滚动 */
+.order-detail{
+  position: absolute;
+  top:0;
+  left: 0;
+  right: 0;
+  bottom:100rpx;
+  padding: 20rpx;
+}
+/* 食品类表 */
+.food-list{
+  padding:20rpx 0;
+}
+.food-list-item{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f9f9f9;
+  padding-right:20rpx;
+  box-shadow: 0px 1px 4px 0 #ccc; 
+  margin-bottom: 10rpx;
+}
+.list-left{
+  display: flex;
+  align-items: center;
+}
+.list-left image{
+  width: 150rpx;
+  height: 150rpx;
+  margin-right: 30rpx;
+}
+.title-box text{
+  display: block;
+}
+.title{
+  font-size:16px;
+  font-weight:bold;
+  display:block;
+  color:#333333;
+  max-width: 300rpx;
+  margin-bottom: 10rpx;
+}
+.num{
+  color:#666;
+}
+.price{
+  font-size: 18px;
+  color:#333333;
+}
+.option-item{
+  padding:30rpx;
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  font-size: 16px;
+  border-bottom: 1px solid #e4e4e4;
+  box-shadow: 0 1px #fff;
+}
+.option-item.zhuo .option-val{
+  font-size: 24px;
+  flex:1;
+  text-align: center;
+}
+
+.opiton-title{
+  min-width: 150rpx;
+  font-weight: bolder;
+  align-items: center;
+  display: flex;
+}
+.option-val textarea{
+  background-color: #f8f8f8;
+  padding:10rpx 20rpx;
+  width:400rpx;
+  min-height: 50rpx;
+  font-size: 16px;
+}
+.tips textarea{
+  background-color: transparent;
+  text-align: right;
+}
+
+.option-val input{
+  background-color: #f8f8f8;
+  padding: 10rpx 20rpx;
+  width:300rpx;
+  font-size: 16px;
+  display: inline-block;
+  border-radius: 10rpx;
+  margin:0;
+  text-align: center;
+}
+.option-val picker{
+  padding:10rpx 20rpx;
+  min-width: 100rpx;
+  background-color: #f8f8f8;
+  text-align: center;
+}

@@ -1,0 +1,85 @@
+
+<!--
+ * @Author lizhenhua
+ * @version 2017-08-10
+ * @description Title
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>酒店床垫新闻,酒店家具资讯,床垫资讯,家具资讯</title>
+    <meta name="baidu-site-verification" content="xoeOXUIuPn">
+    <link rel="stylesheet" href="jquery.pagination.css">
+    <meta name="keywords" content="酒店床垫新闻,酒店家具资讯,床垫资讯,家具资讯">
+    <meta name="description" content="黄金海岸家具公司,专业30年专业床垫厂家.提供各类床垫定制、床垫批发,厂家直销联系电话:180-2753-1507">
+<link rel="stylesheet" href="common.css">
+<link rel="stylesheet" href="news.css">
+</head>
+<body>
+<div id="header"></div>
+<div class="content">
+    <div id="banner"></div>
+    <div class="container clear">
+        <div class="page-left" id="pageLeft"></div>
+        <div class="page-right fl">
+            <div class="page-right-title">
+<a href="index.html">首页</a>
+-新闻动态</div>
+
+            <div class="news-content-list">
+                <ul class="news-list" id="newsList"></ul>
+                <script type="text/html" id="newsListTpl">
+                    <% if(list.length==0){ %>
+                    <li class="no-data">没有更多数据</li>
+                    <% }else{ %>
+                        <% for(var i=0;i< list.length;i++){ %>
+                        <li>
+                            <div class="news-date"><p><%=list[i].day%></p><span><%=list[i].month%></span></div>
+                            <div class="news-detail flex-around">
+                                <div class="news-img"><span class="scale-img img-span wh100"><a class="wh100" target="_blank" href="newDetail.html?id=<%=list[i].id%>"><img alt="<%=list[i].title%>" src="<%=list[i].thumbnail%>"></a></span></div>
+                                <div class="news-text">
+                                    <h3 class="dian"><a target="_blank" href="newDetail.html?id=<%=list[i].id%>"><%=list[i].title%></a></h3>
+                                    <p class="dian4"><%:h=list[i].introduction%></p>
+                                    <a class="to-detail" target="_blank" href="newDetail.html?id=<%=list[i].id%>">查看详情</a>
+                                </div>
+                            </div>
+                        </li>
+                        <% } %>
+                    <% } %>
+                </script>
+                <div class="page-num mb20" id="pageNum">
+                    <div id="pagination"></div>
+                </div>
+                <div class="news-mis">
+                    <div class="page-right-title">推荐资讯</div>
+                    <ul class="flex-between" id="recommendNew">
+                    </ul>
+                    <script type="text/html" id="recommendNewTpl">
+                        <% for(var i=0;i< list.length;i++){ %>
+                        <li class="flex-between">
+                            <div class="news-list-title dian"><a target="_blank" href="newDetail.html?id=<%=list[i].id%>"><%=list[i].title%></a></div>
+                            <div class="news-time"><%=list[i].updateTime%></div>
+                        </li>
+                        <% } %>
+                    </script>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div id="footer"></div>
+<script src="jquery.min.js"></script>
+<script src="jquery.pagination.min.js"></script>
+<script name="baidu-koubei-verification" src="//ikoubei.baidu.com/embed/cfe942f9c03afc7e1100028cc15c915e"></script>
+<script src="http://push.zhanzhang.baidu.com/push.js"></script>
+<script src="http://js.passport.qihucdn.com/11.0.1.js?ffcadb95f854da3b566081c3d672eaf9" id="sozz" ffcadb95f854da3b566081c3d672eaf9=""></script>
+<script src="common.js"></script>
+<script>var _hmt = _hmt || [];</script>
+<script id="omos" src="http://hm.omos88.com/collect.js?GIYTIMJMM5RTCOJYHEXGG33N" GIYTIMJMM5RTCOJYHEXGG33N=""></script>
+
+
+<script src="news.js"></script>
+</body>
+</html>

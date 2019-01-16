@@ -1,0 +1,70 @@
+
+<!--
+ * @Author lizhenhua
+ * @version 2017-08-10
+ * @description Title
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>宾馆床垫,宿舍床垫,公寓床垫直销案例,东莞黄金海岸家具公司</title>
+    <meta name="baidu-site-verification" content="xoeOXUIuPn">
+    <link rel="stylesheet" href="jquery.pagination.css">
+    <meta name="keywords" content="宾馆床垫,公寓床垫,宿舍床垫,出租房床垫,酒店床垫案例">
+    <meta name="description" content="黄金海岸家具公司,3000多工程客户案例.提供各类床垫定制、床垫批发,厂家直销联系电话:180-2753-1507">
+<link rel="stylesheet" href="common.css">
+<link rel="stylesheet" href="case.css">
+</head>
+<body>
+<div id="header"></div>
+<div class="content">
+    <div id="banner"></div>
+    <div class="container clear">
+        <div class="page-left" id="pageLeft"></div>
+        <div class="page-right fl">
+            <div class="page-right-title">
+<a href="index.html">首页</a>
+-工程案例</div>
+            <div class="case-ul clear">
+                <ul class="case-item" id="caseItem"></ul>
+                <script type="text/html" id="caseItemTpl">
+                    <% if(list.length==0){ %>
+                        <li class="no-data">没有更多数据</li>
+                    <% }else{ %>
+                        <% for(var i=0;i< list.length;i++){ %>
+                        <li>
+                            <div class="case-img">
+                                <a href="caseDetail.html?id=<%=list[i].id%>" target="_blank"><span class="wh100 scale-img img-span"><img alt="<%=list[i].title%>" src="<%=list[i].thumbnail%>"></span></a>
+                            </div>
+                            <div class="case-detail">
+                                <h3 class="case-title dian"><a href="caseDetail.html?id=<%=list[i].id%>" target="_blank"><%=list[i].title%></a></h3>
+                                <p class="dian4"><%=list[i].introduction%></p>
+                            </div>
+                        </li>
+                        <% } %>
+                    <% } %>
+                </script>
+            </div>
+            <div class="page-num" id="pageNum">
+                <div id="pagination"></div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div id="footer"></div>
+<script src="jquery.min.js"></script>
+<script src="jquery.pagination.min.js"></script>
+
+<script id="omos" src="http://hm.omos88.com/collect.js?GIYTIMJMM5RTCOJYHEXGG33N" GIYTIMJMM5RTCOJYHEXGG33N=""></script>
+<script name="baidu-koubei-verification" src="//ikoubei.baidu.com/embed/cfe942f9c03afc7e1100028cc15c915e"></script>
+<script src="http://push.zhanzhang.baidu.com/push.js"></script>
+<script src="common.js"></script>
+<script>var _hmt = _hmt || [];</script>
+<script id="omos" src="http://hm.omos88.com/collect.js?GIYTIMJMM5RTCOJYHEXGG33N" GIYTIMJMM5RTCOJYHEXGG33N=""></script>
+
+
+<script src="case.js"></script>
+</body>
+</html>

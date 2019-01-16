@@ -1,0 +1,24 @@
+<!--pages/employeeOrderList/employeeOrderList.wxml-->
+<view class='content'>
+    <view class='option-item'>
+        <input class='search-input' type='text' placeholder='输入订单号，桌号搜索'
+        cursor-spacing="100" confirm-type="search"></input>
+         <icon class='search-icon' type="search" size="20" />
+    </view>
+    <scroll-view scroll-y class='order-list'>
+         <view class='order-item' wx:for="{{list}}" wx:key="{{item.orderId}}" 
+           bindtap='toOrderDetail' data-orderid="{{item.orderId}}">
+           <view class='order-title flex-bet'>
+              <view class='order-id'>订单号：  <text class='bold'>{{item.orderId}}</text></view>
+               <view class='state {{item.state==-1?"gray":item.state==0?"red":item.state==1?"yellow":item.state==2?"blue":"green"}}'>
+              {{item.state==-1?"未支付":item.state==0?"待确认":item.state==1?"制作中":item.state==2?"待配送":"已完成"}}
+              </view>
+           </view>
+           <view class='food-item flex-bet'>
+              <view class='order-id'>桌号：  <text class='bold'>{{item.table}}</text></view>
+              <view class='order-id'>人数：  <text class='bold'>{{item.personNum}}</text></view>
+              <view class='order-id'>{{item.time}}</view>
+           </view>
+        </view>
+    </scroll-view>
+</view>

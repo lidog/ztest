@@ -1,0 +1,13 @@
+ @import "../perOrder/perOrder.wxss";
+
+ .go-back{
+   margin:30rpx 0;
+ }
+ .payed{
+   background-color:#1aac19;
+   color: #fff; 
+   font-weight: normal;
+ }
+ .payed-bot{
+   background-color: #f4f4f4;
+ }

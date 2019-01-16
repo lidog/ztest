@@ -1,0 +1,23 @@
+<!--
+ * @Author lizhenhua
+ * @version 2017-08-10
+ * @description Title
+ -->
+
+<div class="slider" id="slider"></div>
+<script type="text/html" id="sliderTpl">
+    <div class="slider-box" id="sliderBox">
+        <% for(var i=0;i< list.length;i++){ %>
+    <span class="slider-item"><img alt="<%=list[i].title%>" src="<%=list[i].thumbnail%>"></span>
+            <% } %>
+    </div>
+    <ul class="slider-point clear" id="sliderPoint">
+        <% for(var i=0;i< list.length;i++){ %>
+    <li class="<%=i==0?'on':''%>"><span></span></li>
+            <% } %>
+    </ul>
+    <div class="slider-control">
+        <div class="slider-left" id="sliderLeft"></div>
+        <div class="slider-right" id="sliderRight"></div>
+        </div>
+</script>

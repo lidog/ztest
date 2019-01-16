@@ -1,0 +1,22 @@
+/* pages/employeeOrderDetail/employeeOrderDetail.wxss */
+ @import "../perOrder/perOrder.wxss";
+
+ .payed-bot{
+   background-color: #f4f4f4;
+ }
+ .list-left{
+   position: relative;
+ }
+ .had-made{
+   position: absolute;
+   left: 0;
+   bottom: 0;
+   width:150rpx;
+   height:150rpx;
+   display: flex;
+   justify-content: center;
+   align-items: center; 
+ }
+ .num{
+   font-size: 24px;
+ }
