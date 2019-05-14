@@ -1,0 +1,118 @@
+<!-- 
+ * @Author lizhenhua
+ * @version 2017-08-10
+ * @description Title
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="content">
+    <a href="https://www.jianshu.com/p/7c96601d0f2b">题目地址</a>
+
+    <!--your content-->
+    <script>
+
+
+        var url = "http://bpmuatps1.gf.com.cn/bpm/document/draft/new?service=OA-1024&loginid=liangzhiwei"
+
+        function getUrlParam(sUrl, sKey) {
+            var arr={};
+            sUrl.replace(/\??(\w+)=(\w+)&?/g,function(match,p1,p2){
+                if(!arr[p1]){
+                    arr[p1]=p2;
+                }
+                else {
+                    var p=arr[p1];
+                    arr[p1]=[].concat(p,p2);
+                }
+            })
+            if(!sKey)return arr;
+            else{
+                for(var ele in arr){
+                    if(ele==sKey){return arr[ele];}
+                }
+                return "";
+            }
+        }
+        console.log(getUrlParam(url))
+        
+        function getParam(str) {
+            var obj = {};
+            str.replace(/\??(\w+)=(\w+)\&?/g,function (match,$1,$2) {
+                console.log(match)
+                obj[$1] = $2
+            })
+            return obj
+        }
+        console.log(getParam(url))
+
+        // 如何获取一个字符串中的数字字符，并按数组形式输出，如 dgfhfgh254bhku289fgdhdy675gfh输出[254,289,675]
+        var str ="dgfhfgh254bhku289fgdhdy675gfh"
+
+        console.log(str.match(/\d+/g))
+
+        /*
+        * 敏感词过滤
+            比如：“我草你妈哈哈背景天胡景涛哪肉涯剪短发欲望”
+            过滤：‘草肉欲胡景涛’*/
+        var str  = "我草你妈哈哈背景天胡景涛哪肉涯剪短发欲望";
+        console.log(str.replace(/草|肉|欲|胡景涛/g,'*'))
+
+    //让2013-6-7 变成 2013.6.7
+        var str = "2013-6-7"
+        console.log(str.replace(/-/g,'.'))
+
+  /*      写出正则表达式， 从一个字符串中提取链接地址。 比如下面字符串中
+        "IT面试题博客中包含很多  <a href='http://hi.baidu.com/mianshiti/blog/category/微软面试题'> 微软面试题 </a> "*/
+        var str = "IT面试题博客中包含很多  <a href='http://hi.baidu.com/mianshiti/blog/category/微软面试题'> 微软面试题 </a>"
+        // console.log(str.match(/http\:\/\/.+('>)/g))
+        str.replace(/(http\:\/\/.+)('>)/g,function (p1,p2,p3) {
+            str = p2
+        })
+        console.log(str)
+        // console.log(str.match(/<a(?: [^>]*)+href="(.*)"(?: [^>]*)*>/))
+        // console.log(/<a(?: [^>]*)+href="(.*)"(?: [^>]*)*>/.exec(str))
+
+        var s1 = "get-element-by-id";
+        // 给定这样一个连字符串，写一个function转换为驼峰命名法形式的字符串 getElementById
+        // var arr = s1.match(/-(\w){1}/g);
+        // arr.forEach(item=>{
+        //     s1 = s1.replace(new RegExp(item,'g'),item.substr(1).toUpperCase());
+        // })
+        // console.log(s1)
+        sl = s1.replace(/-(\w)/g, function(match, p1) {
+            return p1.toUpperCase();
+        })
+        console.log(s1)
+
+        // 判断连续重复字母
+        let str1 = 'abc3d4e5';
+        let str2 = 'aab2c3';
+        console.log(/([a-zA-Z])\1/.test(str1))
+        console.log(/([a-zA-Z])\1/.test(str2))
+        console.log(/\w[2,]/.test(str1))
+        console.log(/\w[2,]/.test(str2))
+
+
+/*        判断是否符合指定格式；
+        给定字符串 str，检查其是否符合如下格式
+        1、XXX-XXX-XXXX
+        2、其中 X 为 Number 类型*/
+       console.log( /^\d{3}-\d{3}-\d{4}$/.test("562-233-2222"))
+       console.log( /^\d{3}-\d{3}-\d{4}$/.test("562-23s-2222"))
+       console.log( /^\d{3}-\d{3}-\d{4}$/.test("62-233-2222"))
+
+        // 对人口数字的格式化处理，三位数字用一个','(逗号)隔开  12345678 => 12,345,678
+        console.log('1236'.replace(/(\d{2})(\d{3})/g,'$1,$2,'))
+
+
+    </script>
+
+</div>
+</body>
+</html>
+

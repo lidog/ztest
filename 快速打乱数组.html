@@ -20,7 +20,7 @@
         arr.sort(function(){
             return Math.random() - 0.5;
         })
-        console.log(arr);
+        console.log('arr',arr);
 
         /*array.sort()方法默认是升序排序，如果想按照其他标准进行排序，就需要提供比较函数，
         该函数要比较两个值，然后返回一个用于说明这两个值的相对顺序的数字。
@@ -30,12 +30,28 @@
         若 a 等于 b，则返回 0。
         若 a 大于 b，则返回一个大于 0 的值。*/
 
-        var arr2 = [1,2,3,4,5,6,7,8,9,10];
-        arr2.sort((a,b)=>{
-            console.log(a,b)
-            return b-a // [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]  b-a>0 b在前；降序
-            return a-b //[1,2,3,4,5,6,7,8,9,10] a-b<0 a 在前；升序
-        })
+        //上面的打乱数组方法还存在缺陷，经过试验，10000次打乱后，某些数在结尾的概率明显大。没有实现真正的打乱数组；
+        //老老实实使用 一个Fisher–Yates的算法
+       // 为什么叫 Fisher–Yates 呢？ 因为这个算法是由 Ronald Fisher 和 Frank Yates 首次提出的。
+        var arr3 = [1,2,3,4,5,6,7,8,9,10];
+        for(let i=0,arrLen=len=arr3.length;i<len;len--){
+            let index = Math.floor(Math.random()*(arrLen-1));
+            let num = arr3[arrLen-1];
+             arr3[arrLen-1] = arr3[index];
+            arr3[index] = num
+        }
+        console.log('arr3',arr3)
+
+        //es6 实现
+        function shuffle(a) {
+            for (let i = a.length; i; i--) {
+                let j = Math.floor(Math.random() * i);
+                [a[i - 1], a[j]] = [a[j], a[i - 1]];
+            }
+            return a;
+        }
+        var arr4 = [1,2,3,4,5,6,7,8,9,10];
+        console.log('arr4',shuffle(arr4))
 
     </script>
 

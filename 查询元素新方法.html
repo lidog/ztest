@@ -1,0 +1,46 @@
+<!-- 
+ * @Author lizhenhua
+ * @version 2017-08-10
+ * @description Title
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="content">
+    <p></p>
+    <p class="p1"></p>
+    <p class="p1 p3"></p>
+    <p id="p2"></p>
+    <ul class="name">
+        <li class="l1"></li>
+        <li class="l2"></li>
+    </ul>
+
+
+    <!--your content-->
+    <script>
+        // 都接受一个css查询
+        //querySelector 返回第一个匹配的元素
+        console.log(document.querySelector('.p1'))
+        //querySelector 返回所有匹配的元素
+        console.log(document.querySelectorAll('.p1'))
+
+        console.log(document.querySelector('#p2'))
+        console.log(document.querySelectorAll('#p2'))
+
+        console.log(document.querySelector('li'))
+
+        console.log(document.getElementsByClassName('p1')) //返回一个类数组
+        console.log(document.getElementsByClassName('p1 p3'))// 同时有 p1 p3 才算命中
+
+
+    </script>
+
+</div>
+</body>
+</html>
+

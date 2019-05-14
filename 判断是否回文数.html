@@ -1,0 +1,41 @@
+<!-- 
+ * @Author lizhenhua
+ * @version 2017-08-10
+ * @description Title
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="content">
+
+
+    <!--your content-->
+    <!--回文数就是左右两边相同的数。例如:12321,123321-->
+    <script>
+        function fn(num) {
+            var str = num+'',str1='',str2='';
+            if(str.length%2>0){
+                str1 = str.slice(0,Math.floor(str.length/2)); // slice 第二个参数是结尾字符后面一个字符的下标
+                str2 = str.slice(Math.floor(str.length/2)+1);
+            }else {
+                str1 = str.slice(0,Math.floor(str.length/2));
+                str2 = str.slice(Math.floor(str.length/2));
+            }
+            str2 = str2.split('').reverse().join('');
+            return str1==str2?true:false
+        }
+        console.log(fn(12321))
+        console.log(fn(123321))
+        console.log(fn(12332122))
+        console.log(fn(123212))
+
+    </script>
+
+</div>
+</body>
+</html>
+

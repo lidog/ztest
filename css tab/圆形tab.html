@@ -1,0 +1,92 @@
+<!-- 
+ * @Author lizhenhua
+ * @version 2017-08-10
+ * @description Title
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding:0;margin: 0;
+        }
+        ul,li{list-style: none}
+        .content{
+            width: 1200px;
+            margin:50px auto;
+            background: #eee;
+            padding:0 0px 20px;
+        }
+        ul{
+            display: flex;
+            padding-top: 20px;
+            background: #ccc;
+            padding:20px 50px 0;
+        }
+        li{
+            height: 50px;
+            text-align: center;
+            background: #fff;
+            flex:1;
+        }
+        li div{
+            justify-content: space-between;
+            align-items: center;
+            padding:20px;
+            background: #ccc;
+            box-sizing: border-box;
+            height: 100%;
+        }
+        li.on{
+            background: #ccc;
+        }
+
+        li.on div{
+            background: #eee;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            border-bottom-left-radius: 0px;
+            border-bottom-right-radius: 0px;
+        }
+        .on+li{
+            background: #eee;
+        }
+        .on+li div{
+            border-bottom-left-radius: 20px;
+        }
+        .prev{
+            background: #eee;
+        }
+        .prev div{
+            border-bottom-right-radius: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="content">
+    <ul>
+        <li><div>tab one <span>×</span></div></li>
+        <li class="prev"><div>tab two <span>×</span></div></li>
+        <li class="on"><div>tab three <span>×</span></div></li>
+        <li><div>tab four <span>×</span></div></li>
+        <li><div>tab five <span>×</span></div></li>
+        <li><div>tab six <span>×</span></div></li>
+    </ul>
+</div>
+<script>
+    let oli = document.getElementsByTagName('li');
+    [].forEach.call(oli,(item=>{
+        item.onclick = function () {
+            [].forEach.call(oli,o=>o.className = "");
+            this.className = "on";
+            if(this.previousSibling.previousSibling){
+                this.previousSibling.previousSibling.className = 'prev'
+            }
+        }
+    }))
+</script>
+</body>
+</html>
+

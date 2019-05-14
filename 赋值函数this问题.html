@@ -1,0 +1,50 @@
+<!-- 
+ * @Author lizhenhua
+ * @version 2017-08-10
+ * @description Title
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="content">
+
+
+    <!--your content-->
+    <script>
+
+        /*调用位置决定了上下文对象 所以*/
+        /* 函数的调用位置 决定了 this的指向*/
+        var obj = {
+            a:1,
+            fn(){
+                console.log(this.a)
+            },
+            fn2:fn1,
+        }
+        var a = 2
+        function fn1() {
+            console.log(this.a)
+        }
+        obj.fn();//1
+        obj.fn2();//1
+
+
+        function fo() {
+            let a = 1;
+            function foo() {
+                console.log(this.a)
+            }
+            return foo
+        }
+        fo()();//underfined
+
+    </script>
+
+</div>
+</body>
+</html>
+

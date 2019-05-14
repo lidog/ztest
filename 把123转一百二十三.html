@@ -1,0 +1,62 @@
+<!-- 
+ * @Author lizhenhua
+ * @version 2017-08-10
+ * @description Title
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="content">
+
+
+    <!--your content-->
+    <script>
+        //一二三四五六七八九  十百千万亿
+        function trans(number) {
+            const num = ['零','一','二','三','四','五','六','七','八','九','十']
+            const unit = ['十','百','千']
+            var arr = number.toString().split('');
+            var length = arr.length;
+            if(number==10)return num[10]
+            if(length<=4){
+               return tranQ(arr)
+            }
+            if(length<=8){
+                let str = tranQ(arr.splice(length-4))
+                str = transW(arr) + str;
+                return str
+            }
+            if(length<=12){
+                let str = tranQ(arr.splice(length-4))
+                str = transW(arr.splice(arr.length-4))+str;
+                str = transY(arr)+ str
+                return str
+            }
+            function tranQ(arr) {
+                let str = "";
+                for (let i = 0,len=arr.length; i < arr.length; i++) {
+                    str+=num[arr[i]];
+                    let units = unit[len-2]
+                    str+=units?units:''
+                    len--;
+                }
+                return str
+            }
+            function transW(arr) {
+                return tranQ(arr)+"万"
+            }
+            function transY(arr) {
+                return tranQ(arr)+"亿"
+            }
+        }
+        console.log(trans(122345361))
+    </script>
+
+</div>
+</body>
+</html>
+
