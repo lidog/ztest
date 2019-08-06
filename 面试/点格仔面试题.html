@@ -1,0 +1,97 @@
+<!--
+ * @Author lizhenhua
+ * @version 2017-08-10
+ * @description Title
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        ul {
+            list-style: none;
+        }
+        ul li {
+            width: 50px;
+            height: 50px;
+            border: 1px solid #ccc;
+            float: left;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+<div class="content">
+    <ul class="ul"></ul>
+</div>
+<!--your content-->
+<script>
+    class Pain{
+        constructor(n){
+            this.point = [];
+            this.n = n;
+            this.pain();
+            this.addListen();
+        }
+        pain() {
+            let n = this.n;
+            let str = "";
+            for (let i = 1; i < n + 1; i++) {
+                for (let k = 1; k < n + 1; k++) {
+                    str += "<li id=" + [i, k] + "></li>"
+                }
+            }
+            let oUl = document.querySelector(".ul");
+            oUl.innerHTML = str
+            oUl.style.width = 50 * n + "px";
+        }
+        redPoint(arr) {
+            this.pain()
+            for (var i = 0; i < arr.length; i++) {
+                document.getElementById(arr[i].toString()).style.backgroundColor = "red";
+            }
+        }
+        addListen(){
+            let n = this.n
+            document.querySelector('ul').addEventListener('click', (e)=>{
+                if(!e.target.id)return;
+                let target = e.target.id.split(",");
+                let a = target[0] = parseInt(target[0])
+                let b = target[1] = parseInt(target[1])
+                if (a == 1 && b == n) { //角
+                    this.point = [[a, b - 1], [a + 1, b]]
+                } else if (a == n && b == 1) {
+                    this.point = [[a - 1, b], [a, b + 1]]
+                } else if (a == n && b == n) {
+                    this.point = [[a - 1, b], [a, b - 1]]
+                } else if (a == 1 && b == 1) {
+                    this.point = [[1, 2], [2, 1]]
+                } else if (target.indexOf(1) === -1 && target.indexOf(n) === -1) { //非角非边
+                    this.point = [[a - 1, b], [a + 1, b], [a, b - 1], [a, b + 1]]
+                } else if (a == 1) { //边
+                    this.point = [[a, b - 1], [a, b + 1], [a + 1, b]]
+                } else if (a == n) {
+                    this.point = [[a, b - 1], [a, b + 1], [a - 1, b]]
+                } else if (b == 1) {
+                    this.point = [[a - 1, b], [a + 1, b], [a, b + 1]]
+                } else if (b == n) {
+                    this.point = [[a - 1, b], [a + 1, b], [a, b - 1]]
+                }
+                this.redPoint(this.point)
+            })
+        }
+    }
+    new Pain(15)
+
+</script>
+</body>
+</html>
+

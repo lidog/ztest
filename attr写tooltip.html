@@ -1,0 +1,31 @@
+<!-- 
+ * @Author lizhenhua
+ * @version 2017-08-10
+ * @description Title
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        span[data-title]{
+            poistion:relative;
+        }
+        span[data-title]:hover:after{
+            content:attr(data-title);
+            position:abslute;
+            top: -150%;
+            left:50%;
+            transform:translateX(-50%);
+            white-space:nowrap;
+        }
+    </style>
+</head>
+<body>
+<div class="content">
+    <p>hello, <span data-title='我是tooltip'>FED</span></p>
+</div>
+</body>
+</html>
+

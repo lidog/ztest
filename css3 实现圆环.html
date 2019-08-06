@@ -1,0 +1,41 @@
+<!-- 
+ * @Author lizhenhua
+ * @version 2017-08-10
+ * @description Title
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        ul li{
+            width: 50px;
+            height: 50px;
+        }
+        li:nth-child(1){
+            background: yellow;
+        }
+        li:nth-child(2){
+            background: blue;
+            color: white;
+        }
+        li:nth-child(1):hover + li{
+            display: none;
+        }
+        li:nth-child(2):hover:nth-last-of-type(2){
+            display:none;
+        }
+
+    </style>
+</head>
+<body>
+<div class="content">
+    <ul>
+        <li>one</li>
+        <li>two</li>
+    </ul>
+</div>
+</body>
+</html>
+

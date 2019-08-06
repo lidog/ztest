@@ -1,0 +1,42 @@
+<!-- 
+ * @Author lizhenhua
+ * @version 2017-08-10
+ * @description Title
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="content">
+
+
+    <!--your content-->
+    <script>
+        // promise 返回 的都是一个 promise 对象；
+        function fn() {
+            return new Promise(resolve => {
+                    resolve(20)
+            }).then(()=>{
+                    return {val:2} //这里返回的是一个数值，但是 fn 运行后实际是返回一个promise，value 是这个返回值
+                // return Promise.resolve({val:2})  //在一个promise 构造函数里，这两句等效的；
+            })
+        }
+        console.log(fn()) //promise
+
+
+        async function fn2(){
+            let a = await fn(); // 在 async 函数里，await 会等待promise 执行完，并把resolve的值返回
+            console.log(a)
+            return a //即使返回一个正常值，async 也会包装成一个promise返回
+        }
+        console.log('await',fn2()) //promise
+    </script>
+
+
+</div>
+</body>
+</html>
+
