@@ -1,0 +1,126 @@
+<!-- 
+ * @Author lizhenhua
+ * @version 2017-08-10
+ * @description Title
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="content">
+<canvas id="canvas" width="1000" height="800" style="border: 1px solid #ccc;"></canvas>
+
+    <!--your content-->
+    <script>
+        function $$(id) {
+            return document.getElementById(id).getContext('2d');
+        }
+        window.onload = function () {
+            var cxt = $$("canvas")
+            oneLine(cxt)
+            twoLine(cxt)
+            parallel(cxt)
+            rect(cxt)
+            fillRectFn(cxt)
+            fillRgbaRect(cxt)
+            clearRectFn(cxt)
+            createPolygon(cxt,5,500,500,50)
+            createPolygon(cxt,10,500,200,50)
+            starFn(cxt)
+        }
+
+        //画一条直线
+        function oneLine(cxt){
+            cxt.moveTo(50,20)
+            cxt.lineTo(150,20)
+        }
+        //画连接的两条直线
+        function twoLine(cxt) {
+            cxt.moveTo(50,100)
+            cxt.lineTo(150,100)
+            cxt.lineTo(50,150)
+            cxt.stroke()
+        }
+
+        //两条平行线
+        function parallel(cxt) {
+            cxt.moveTo(50,200)
+            cxt.lineTo(150,200)
+            cxt.moveTo(50,220)
+            cxt.lineTo(150,220)
+            cxt.stroke()
+        }
+
+        //一个描边矩形
+        function rect(cxt) {
+            cxt.strokeStyle = 'red';
+            cxt.strokeRect(50,250,100,150);
+        }
+        
+        //一个填充矩形
+        function fillRectFn(cxt) {
+            cxt.fillStyle = "red" //这个定义一定要再 strokeRect 之前
+            cxt.fillRect(300,250,100,150) //画一个红色边的 100*150 矩形
+        }
+
+        //层叠透明矩形
+        function fillRgbaRect(cxt) {
+            cxt.fillStyle = "red" //这个定义一定要再 strokeRect 之前
+            cxt.fillRect(300,20,100,150) //画一个红色边的 100*150 矩形
+            cxt.fillStyle = "rgba(0,0,255,0.3)"
+            cxt.fillRect(250,50,100,150)
+        }
+
+        //清楚区域
+        function clearRectFn(cxt) {
+            cxt.clearRect(280,60,50,50)
+        }
+
+        /**
+        * 功能：画一个正多边形
+        * 参数：n n边型，dx,dy 表示n边型的中心坐标。size 表示n边型大小
+        * 返回值：
+        */
+        function createPolygon(cxt,n,dx,dy,size) {
+            cxt.beginPath()
+            var degree = (2* Math.PI)/n;
+            for(var i=0;i<n;i++){
+                var x = Math.cos(i*degree);
+                var y = Math.sin(i*degree)
+                cxt.lineTo(x*size+dx,y*size+dy);
+            }
+            cxt.closePath();
+            cxt.fillStyle = "blue"
+            cxt.fill();
+        }
+
+        /**
+        * 作者：lzh
+        * 功能：画一个五角星
+        * 参数：
+        * 返回值：
+        */
+        function starFn(cxt) {
+            cxt.beginPath()
+            for(var i=0;i<5;i++){
+                cxt.lineTo(
+                    Math.cos((18+i*72)*Math.PI/180)*50+700,
+                    -Math.sin((18+i*72)*Math.PI/180)*50 +100
+                );
+                cxt.lineTo(
+                    Math.cos((52+i*72)*Math.PI/180)*25+700,
+                    -Math.sin((54+i*72)*Math.PI/180)*25 +100
+                );
+            }
+            cxt.closePath()
+            cxt.stroke();
+        }
+    </script>
+
+</div>
+</body>
+</html>
+

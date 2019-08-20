@@ -1,0 +1,126 @@
+<!-- 
+ * @Author lizhenhua
+ * @version 2017-08-10
+ * @description Title
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="content">
+    <canvas id="canvas" width="1000" height="800" style="border: 1px solid #ccc;"></canvas>
+
+    <!--your content-->
+    <script>
+        function $$(id) {
+            let cnv =  document.getElementById(id)
+            return {
+               cnv:cnv,
+               cxt:cnv.getContext('2d')
+            };
+        }
+        window.onload = function () {
+            let {cxt,cnv} = $$("canvas")
+            arcFn(cxt)
+            halfArc(cxt)
+            arcFnColor(cxt)
+            minArc(cxt)
+            arcFnx(cxt)
+            fillArc(cxt)
+            arcToFn(cxt)
+            arcTo4(cxt)
+        }
+
+        //画一个圆
+        function arcFn(cxt) {
+            cxt.beginPath();
+            cxt.arc(100,100,50,0,360*Math.PI/180,true)
+            cxt.closePath();
+            cxt.stroke()
+        }
+
+        //画一个半圆
+        function halfArc(cxt) {
+            cxt.beginPath();
+            cxt.arc(200,100,50,0,180*Math.PI/180,true)
+            cxt.closePath();
+            cxt.stroke()
+        }
+
+        //描边圆
+        function arcFnColor(cxt) {
+            cxt.beginPath();
+            cxt.arc(300,100,50,0,360*Math.PI/180,true)
+            cxt.closePath();
+            cxt.strokeStyle = "red"
+            cxt.stroke()
+        }
+
+        //画一个小弧形
+        function minArc(cxt) {
+            cxt.beginPath();
+            cxt.arc(400,100,50,150*Math.PI/180,90*Math.PI/180,true)
+            cxt.closePath();
+            cxt.stroke()
+        }
+
+        //弧线
+        function arcFnx(cxt){
+            cxt.beginPath();
+            cxt.arc(400,100,50,0,-90*Math.PI/180,true)
+            cxt.stroke()
+        }
+
+        //填充饼图和圆
+        function fillArc(cxt) {
+            //填充扇形
+            cxt.beginPath()
+            cxt.arc(500,100,50,0,180*Math.PI/180,true)
+            cxt.closePath()
+            cxt.fillStyle = "HotPink"
+            cxt.fill()
+
+            //填充圆形
+            cxt.beginPath()
+            cxt.arc(550,100,50,0,360*Math.PI/180,true)
+            cxt.closePath();
+            cxt.fillStyle = "#9966FF"
+            cxt.fill();
+        }
+
+        //arcTo 绘制弧线
+        function arcToFn(cxt) {
+            cxt.moveTo(20,220)
+            cxt.lineTo(70,220)
+            cxt.arcTo(120,220,120,270,50)
+            cxt.lineTo(120,320)
+            cxt.stroke();
+        }
+
+        //画一个圆角矩形
+        function arcTo4(cxt) {
+            cxt.moveTo(40,20)
+            cxt.lineTo(160,20)
+            cxt.arcTo(180,20,180,40,20)
+            cxt.moveTo(180,40)
+            cxt.lineTo(180,110)
+            cxt.arcTo(180,130,160,130,20)
+            cxt.moveTo(160,130)
+            cxt.lineTo(40,130)
+            cxt.arcTo(20,130,20,110,20)
+            cxt.moveTo(20,110)
+            cxt.lineTo(20,40)
+            cxt.arcTo(20,20,40,20,20)
+            cxt.stroke();
+        }
+
+        
+    </script>
+
+</div>
+</body>
+</html>
+
