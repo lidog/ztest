@@ -14,47 +14,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="画直线.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/canvas 详解/画直线.html">
+      <file leaf-file-name="promise.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/珠峰手写promise/promise.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2835">
-              <caret line="105" column="30" selection-start-line="105" selection-start-column="30" selection-end-line="105" selection-end-column="30" />
-              <folding>
-                <element signature="n#style#0;n#canvas#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="实现调色板.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/canvas 详解/实现调色板.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="810">
-              <caret line="30" column="28" selection-start-line="30" selection-start-column="28" selection-end-line="30" selection-end-column="28" />
-              <folding>
-                <element signature="n#style#0;n#canvas#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="曲线.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/canvas 详解/曲线.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="381">
-              <caret line="103" column="30" selection-start-line="103" selection-start-column="30" selection-end-line="103" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="3.3-5.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/canvas 详解/《HTML5 Canvas开发详解》源代码/Canvas基础/3.3-5.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="6" column="25" lean-forward="true" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
-              <folding>
-                <element signature="n#style#0;n#canvas#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="489">
+              <caret line="45" column="39" lean-forward="true" selection-start-line="45" selection-start-column="39" selection-end-line="45" selection-end-column="39" />
             </state>
           </provider>
         </entry>
@@ -64,8 +28,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="HTML File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -117,6 +81,7 @@
         <option value="$PROJECT_DIR$/canvas 详解/画直线.html" />
         <option value="$PROJECT_DIR$/canvas 详解/实现调色板.html" />
         <option value="$PROJECT_DIR$/canvas 详解/曲线.html" />
+        <option value="$PROJECT_DIR$/珠峰手写promise/promise.js" />
       </list>
     </option>
   </component>
@@ -154,20 +119,7 @@
             <path>
               <item name="ztest" type="b2602c69:ProjectViewProjectNode" />
               <item name="ztest" type="462c0819:PsiDirectoryNode" />
-              <item name="canvas 详解" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ztest" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ztest" type="462c0819:PsiDirectoryNode" />
-              <item name="canvas 详解" type="462c0819:PsiDirectoryNode" />
-              <item name="《HTML5 Canvas开发详解》源代码" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ztest" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ztest" type="462c0819:PsiDirectoryNode" />
-              <item name="canvas 详解" type="462c0819:PsiDirectoryNode" />
-              <item name="《HTML5 Canvas开发详解》源代码" type="462c0819:PsiDirectoryNode" />
-              <item name="Canvas基础" type="462c0819:PsiDirectoryNode" />
+              <item name="珠峰手写promise" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -179,7 +131,7 @@
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../coding-272" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
@@ -246,17 +198,18 @@
       <workItem from="1565168994051" duration="1032000" />
       <workItem from="1565246101743" duration="20174000" />
       <workItem from="1565570790733" duration="2597000" />
+      <workItem from="1566291231314" duration="211000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="164130000" />
+    <option name="totallyTimeSpent" value="164341000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18336888" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18550107" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
@@ -278,19 +231,19 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16965227" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="10" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.3293348" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="10" />
-      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" />
       <window_info id="Favorites" order="2" side_tool="true" />
     </layout-to-restore>
   </component>
@@ -306,13 +259,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/三个item 布局.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="10" column="61" lean-forward="true" selection-start-line="10" selection-start-column="61" selection-end-line="10" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/some 和 every.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -566,9 +512,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/canvas 详解/《HTML5 Canvas开发详解》源代码/Canvas基础/2.3-2.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/canvas 详解/《HTML5 Canvas开发详解》源代码/Canvas基础/5.2-3.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/canvas 详解/《HTML5 Canvas开发详解》源代码/Canvas基础/3.2-1.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/canvas 详解/画直线.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2835">
+        <state relative-caret-position="813">
           <caret line="105" column="30" selection-start-line="105" selection-start-column="30" selection-end-line="105" selection-end-column="30" />
           <folding>
             <element signature="n#style#0;n#canvas#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -586,15 +541,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/canvas 详解/《HTML5 Canvas开发详解》源代码/Canvas基础/2.3-2.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/canvas 详解/《HTML5 Canvas开发详解》源代码/Canvas基础/5.2-3.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/canvas 详解/《HTML5 Canvas开发详解》源代码/Canvas基础/3.2-1.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/canvas 详解/曲线.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="381">
@@ -604,11 +550,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/canvas 详解/《HTML5 Canvas开发详解》源代码/Canvas基础/3.3-5.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="6" column="25" lean-forward="true" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
+        <state relative-caret-position="189">
+          <caret line="7" column="47" lean-forward="true" selection-start-line="7" selection-start-column="47" selection-end-line="7" selection-end-column="47" />
           <folding>
             <element signature="n#style#0;n#canvas#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/珠峰手写promise/promise.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="489">
+          <caret line="45" column="39" lean-forward="true" selection-start-line="45" selection-start-column="39" selection-end-line="45" selection-end-column="39" />
         </state>
       </provider>
     </entry>
